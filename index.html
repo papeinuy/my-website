@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Mello — Agile Coach & Consultant</title>
+<meta name="description" content="Juan Mello — Agile Coach certificado, consultor y formador. Transformaciones ágiles, OKRs y Flight Levels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1620;
+    --ink-2:#161F2B;
+    --ink-3:#1E2933;
+    --paper:#F3F5F4;
+    --paper-2:#E7EBE9;
+    --teal:#2E6E62;
+    --teal-light:#4C8C7E;
+    --gold:#C9A227;
+    --text-dark:#12181F;
+    --muted:#5B6B67;
+    --muted-light:#A7B6B2;
+    --line-dark:rgba(233,237,236,0.14);
+    --line-light:rgba(15,22,32,0.12);
+    --radius:2px;
+    --maxw:1180px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--text-dark);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    margin:0;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-light);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  section.light .eyebrow{color:var(--teal);}
+  section.light .eyebrow::before{background:var(--gold);}
+
+  /* ---------- Flight-level tag system (signature element) ---------- */
+  .level-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:5px 10px 5px 8px;
+    border-radius:var(--radius);
+    border:1px solid var(--line-light);
+    white-space:nowrap;
+  }
+  .level-tag .dot{width:6px;height:6px;border-radius:50%;flex:none;}
+  .level-tag--strategic .dot{background:var(--gold);}
+  .level-tag--coordination .dot{background:var(--teal-light);}
+  .level-tag--operational .dot{background:var(--muted);}
+  section.dark .level-tag{border-color:var(--line-dark);color:var(--muted-light);}
+  section.light .level-tag{border-color:var(--line-light);color:var(--muted);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.03em;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    border:1px solid transparent;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--teal);color:#F3F5F4;}
+  .btn-primary:hover{background:var(--teal-light);}
+  .btn-ghost{background:transparent;color:var(--text-light,#E9EDEC);border-color:var(--line-dark);}
+  .btn-ghost:hover{border-color:var(--muted-light);}
+  section.light .btn-ghost{color:var(--text-dark);border-color:var(--line-light);}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,22,32,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  @media (max-width:640px){.nav-inner{padding:14px 20px;}}
+  .brand{
+    font-family:var(--display);font-weight:700;font-size:17px;color:#F3F5F4;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand-mark{
+    width:9px;height:9px;background:var(--gold);flex:none;
+    transform:rotate(45deg);
+  }
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{
+    font-size:14px;color:var(--muted-light);
+    position:relative;padding:4px 0;
+  }
+  .nav-links a:hover{color:#F3F5F4;}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  #langToggle{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.06em;
+    background:transparent;border:1px solid var(--line-dark);color:var(--muted-light);
+    padding:8px 12px;border-radius:var(--radius);cursor:pointer;
+  }
+  #langToggle:hover{border-color:var(--gold);color:#F3F5F4;}
+  .nav-cta{display:inline-flex;}
+  .hamburger{
+    display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;
+  }
+  .hamburger span{width:20px;height:1.5px;background:#F3F5F4;}
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed;inset:60px 0 auto 0;background:var(--ink);
+      flex-direction:column;align-items:flex-start;gap:0;
+      border-bottom:1px solid var(--line-dark);
+      max-height:0;overflow:hidden;transition:max-height .25s ease;
+    }
+    .nav-links.open{max-height:400px;}
+    .nav-links a{width:100%;padding:16px 20px;border-bottom:1px solid var(--line-dark);}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  section.dark{background:var(--ink);color:#E9EDEC;}
+  section.light{background:var(--paper);color:var(--text-dark);}
+  .hero{
+    padding:96px 0 80px;
+    background:
+      radial-gradient(ellipse 700px 400px at 85% -10%, rgba(46,110,98,0.35), transparent 60%),
+      var(--ink);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;
+  }
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
+  .hero h1{
+    font-size:clamp(32px,4.4vw,54px);
+    color:#F6F7F5;
+    margin:20px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold);
+  }
+  .hero p.lead{
+    font-size:17px;line-height:1.65;color:var(--muted-light);
+    max-width:52ch;margin-bottom:34px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .hero-levels{display:flex;gap:10px;flex-wrap:wrap;}
+
+  .altimeter{
+    display:flex;flex-direction:column;gap:0;
+    border:1px solid var(--line-dark);
+    background:var(--ink-2);
+  }
+  .alt-row{
+    display:grid;grid-template-columns:96px 1fr 64px;align-items:center;
+    padding:20px 20px;border-bottom:1px solid var(--line-dark);
+    gap:14px;
+  }
+  .alt-row:last-child{border-bottom:none;}
+  .alt-label{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--muted-light);text-transform:uppercase;}
+  .alt-bar-track{height:8px;background:var(--ink-3);position:relative;overflow:hidden;}
+  .alt-bar-fill{
+    position:absolute;left:0;top:0;bottom:0;width:0%;
+    background:linear-gradient(90deg, var(--teal), var(--teal-light));
+    transition:width 1.1s cubic-bezier(.2,.7,.2,1);
+  }
+  .alt-row[data-level="strategic"] .alt-bar-fill{background:linear-gradient(90deg,var(--gold),#e0bd52);}
+  .alt-value{font-family:var(--mono);font-size:13px;color:#F3F5F4;text-align:right;}
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip{
+    border-top:1px solid var(--line-dark);
+    background:var(--ink-2);
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    max-width:var(--maxw);margin:0 auto;
+  }
+  .stat{
+    padding:30px 32px;border-left:1px solid var(--line-dark);
+  }
+  .stat:first-child{border-left:none;}
+  @media (max-width:640px){
+    .stats-grid{grid-template-columns:1fr;}
+    .stat{border-left:none;border-top:1px solid var(--line-dark);}
+    .stat:first-child{border-top:none;}
+  }
+  .stat-value{font-family:var(--mono);font-size:30px;color:var(--gold);}
+  .stat-label{font-size:13px;color:var(--muted-light);margin-top:4px;}
+
+  /* ---------- Section generic ---------- */
+  section{padding:96px 0;}
+  @media (max-width:640px){section{padding:64px 0;}}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,38px);margin-top:16px;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+  .about-body p{font-size:16.5px;line-height:1.75;color:var(--text-dark);}
+  .about-quote{
+    margin-top:32px;padding:22px 24px;border-left:2px solid var(--gold);
+    background:var(--paper-2);font-family:var(--display);font-size:19px;line-height:1.5;
+  }
+  .about-side{border:1px solid var(--line-light);padding:28px;background:#fff;}
+  .about-side h4{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  .edu-item{padding:12px 0;border-top:1px solid var(--line-light);}
+  .edu-item:first-of-type{border-top:none;}
+  .edu-item .edu-degree{font-size:14.5px;font-weight:600;}
+  .edu-item .edu-meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:3px;}
+
+  /* ---------- Services ---------- */
+  .services-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  @media (max-width:860px){.services-cols{grid-template-columns:1fr;gap:44px;}}
+  .services-col-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid var(--line-light);
+  }
+  .services-col-head h3{font-size:20px;}
+  .service-card{
+    padding:22px 0;border-top:1px solid var(--line-light);
+    display:grid;grid-template-columns:28px 1fr;gap:16px;
+  }
+  .service-card:first-of-type{border-top:none;}
+  .service-num{font-family:var(--mono);font-size:12px;color:var(--gold);padding-top:3px;}
+  .service-card h4{font-size:16px;margin-bottom:6px;}
+  .service-card p{font-size:14.5px;line-height:1.6;color:var(--muted);}
+
+  /* ---------- Experience ---------- */
+  .exp-list{border-top:1px solid var(--line-dark);}
+  .exp-item{
+    padding:30px 0;border-bottom:1px solid var(--line-dark);
+    display:grid;grid-template-columns:170px 1.4fr 1fr;gap:24px;align-items:start;
+  }
+  @media (max-width:860px){.exp-item{grid-template-columns:1fr;gap:10px;}}
+  .exp-dates{font-family:var(--mono);font-size:12.5px;color:var(--muted-light);padding-top:4px;}
+  .exp-role h4{font-size:18px;color:#F6F7F5;margin-bottom:4px;}
+  .exp-role .exp-co{font-size:14px;color:var(--teal-light);margin-bottom:10px;}
+  .exp-role p{font-size:14.5px;line-height:1.6;color:var(--muted-light);}
+  .exp-metric{
+    font-family:var(--mono);font-size:18px;color:var(--gold);
+    text-align:right;line-height:1.4;
+  }
+  @media (max-width:860px){.exp-metric{text-align:left;}}
+  .exp-item .level-tag{margin-top:10px;}
+
+  /* ---------- Certifications ---------- */
+  .cert-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .cert-badge{
+    font-family:var(--mono);font-size:12px;padding:8px 12px;
+    border:1px solid var(--line-light);color:var(--muted);
+    background:#fff;
+  }
+  .cert-badge b{color:var(--text-dark);font-weight:600;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;}
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .field label{
+    display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--muted-light);margin-bottom:8px;
+  }
+  .field input,.field textarea{
+    width:100%;background:var(--ink-2);border:1px solid var(--line-dark);
+    color:#F3F5F4;padding:13px 14px;font-family:var(--body);font-size:15px;border-radius:var(--radius);
+  }
+  .field input:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+  .field textarea{resize:vertical;min-height:120px;}
+  #formNote{font-size:13px;color:var(--muted-light);margin-top:4px;min-height:18px;}
+  .contact-links{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line-dark);}
+  .contact-link{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;border-bottom:1px solid var(--line-dark);
+  }
+  .contact-link .cl-label{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted-light);}
+  .contact-link .cl-value{font-size:15px;color:#F3F5F4;}
+  .contact-link:hover .cl-value{color:var(--gold);}
+
+  footer{
+    padding:32px 0;border-top:1px solid var(--line-dark);background:var(--ink);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  }
+  footer p{font-size:13px;color:var(--muted-light);}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand"><span class="brand-mark"></span>Juan Mello</a>
+    <nav id="navLinks" class="nav-links">
+      <a href="#about" data-i18n="nav.about">Sobre mí</a>
+      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#experience" data-i18n="nav.experience">Trayectoria</a>
+      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="nav-right">
+      <button id="langToggle" aria-label="Switch language">EN</button>
+      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Agendemos</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="dark hero" id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Agile Coach Certificado · Scrum Alliance</span>
+        <h1 data-i18n-html="hero.title">Elevo la forma de trabajar de tu organización, <em>un nivel de vuelo a la vez.</em></h1>
+        <p class="lead" data-i18n="hero.subtitle">Coach, formador y consultor con más de una década guiando transformaciones ágiles reales: de la operación diaria a la estrategia, en organizaciones que van desde bancos hasta startups tecnológicas de EE. UU.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Agendar una conversación</a>
+          <a href="#services" class="btn btn-ghost" data-i18n="hero.cta_secondary">Ver servicios</a>
+        </div>
+        <div class="hero-levels">
+          <span class="level-tag level-tag--strategic"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
+          <span class="level-tag level-tag--coordination"><span class="dot"></span><span data-i18n="level.coordination">Nivel de Coordinación</span></span>
+          <span class="level-tag level-tag--operational"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
+        </div>
+      </div>
+      <div class="altimeter" aria-hidden="true">
+        <div class="alt-row" data-level="strategic">
+          <span class="alt-label" data-i18n="level.strategic">Nivel Estratégico</span>
+          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="88"></div></div>
+          <span class="alt-value">OKRs</span>
+        </div>
+        <div class="alt-row" data-level="coordination">
+          <span class="alt-label" data-i18n="level.coordination">Nivel de Coordinación</span>
+          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="70"></div></div>
+          <span class="alt-value">SAFe · LeSS</span>
+        </div>
+        <div class="alt-row" data-level="operational">
+          <span class="alt-label" data-i18n="level.operational">Nivel Operativo</span>
+          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="95"></div></div>
+          <span class="alt-value">Scrum · Kanban</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value">10+</div>
+        <div class="stat-label" data-i18n="hero.stat1">Años transformando equipos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">60+</div>
+        <div class="stat-label" data-i18n="hero.stat2">Equipos guiados a escala</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">15+</div>
+        <div class="stat-label" data-i18n="hero.stat3">Certificaciones ágiles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow" data-i18n="about.eyebrow">Sobre mí</span>
+        <div class="section-head" style="margin-bottom:24px;">
+          <h2 data-i18n="about.title">De la sala de máquinas a la sala del directorio.</h2>
+        </div>
+        <div class="about-body reveal">
+          <p data-i18n="about.body">Soy Agile Coach certificado por Scrum Alliance, con más de diez años liderando y formando equipos remotos e internacionales de alto rendimiento. He guiado transformaciones ágiles completas — de estructuras heredadas a modelos operativos de producto — implementando frameworks escalados, OKRs y Flight Levels en organizaciones de distintos tamaños y sectores. Mi enfoque combina la reducción sistemática de deuda técnica con una cultura sostenida de mejora continua, siempre buscando un impacto que se sienta en los resultados y en las personas.</p>
+          <div class="about-quote" data-i18n="about.quote">Busco transformaciones profundas: las que realmente cambian la forma en que las personas trabajan y viven.</div>
+        </div>
+      </div>
+      <div class="about-side reveal">
+        <h4 data-i18n="about.edu_title">Formación</h4>
+        <div class="edu-item">
+          <div class="edu-degree" data-i18n="about.edu1">Coaching &amp; NLP Master Practitioner</div>
+          <div class="edu-meta">ICANAlliance &amp; NLP Institute of Uruguay · 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree" data-i18n="about.edu2">MBA</div>
+          <div class="edu-meta">Isabel I University, España · 2023</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree" data-i18n="about.edu3">Analista de Sistemas</div>
+          <div class="edu-meta">ORT University, Uruguay · 2009</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="services.eyebrow">Qué ofrezco</span>
+      <h2 data-i18n="services.title">Dos caminos, un mismo destino: equipos que entregan valor real.</h2>
+    </div>
+    <div class="services-cols">
+      <div class="reveal">
+        <div class="services-col-head">
+          <h3 data-i18n="services.col1_title">Consultoría</h3>
+          <span class="level-tag level-tag--strategic"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
+        </div>
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <div><h4 data-i18n="services.c1_t">Transformación ágil</h4><p data-i18n="services.c1_d">Diseño e implementación de transformaciones ágiles end-to-end, desde el diagnóstico hasta la escala, incluyendo modelos operativos de producto.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <div><h4 data-i18n="services.c2_t">OKRs y Flight Levels</h4><p data-i18n="services.c2_d">Implementación de OKRs y del framework Flight Levels para conectar la estrategia con la operación diaria.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <div><h4 data-i18n="services.c3_t">Frameworks escalados</h4><p data-i18n="services.c3_d">Diseño y despliegue de Scrum, Kanban y frameworks escalados (SAFe, LeSS) en múltiples equipos.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <div><h4 data-i18n="services.c4_t">Gestión de stakeholders</h4><p data-i18n="services.c4_d">Facilitación de la relación entre equipos técnicos y stakeholders de negocio, con roadmaps claros y medibles.</p></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="services-col-head">
+          <h3 data-i18n="services.col2_title">Formación (Trainer)</h3>
+          <span class="level-tag level-tag--operational"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
+        </div>
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <div><h4 data-i18n="services.c5_t">Talleres y certificaciones</h4><p data-i18n="services.c5_d">Talleres oficiales de Management 3.0 y programas de certificación ágil a medida.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <div><h4 data-i18n="services.c6_t">Coaching de equipos</h4><p data-i18n="services.c6_d">Mentoría directa a Scrum Masters y equipos para instalar hábitos ágiles sostenibles.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">03</span>
+          <div><h4 data-i18n="services.c7_t">Facilitación de eventos</h4><p data-i18n="services.c7_d">Diseño y facilitación de eventos ágiles a escala: PI Plannings, retrospectivas multi-equipo, talleres de OKRs.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">04</span>
+          <div><h4 data-i18n="services.c8_t">Workshops in-house</h4><p data-i18n="services.c8_d">Formaciones a medida para equipos y liderazgo, con seguimiento de resultados y NPS de satisfacción.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="experience.eyebrow">Trayectoria</span>
+      <h2 data-i18n="experience.title">Resultados, no solo roles.</h2>
+    </div>
+
+    <div class="exp-list" style="border-top-color:var(--line-light);">
+      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
+        <div class="exp-dates" style="color:var(--muted);">03/2021 — <span data-i18n="experience.present">Presente</span></div>
+        <div class="exp-role">
+          <h4 style="color:var(--text-dark);">Coach, Trainer &amp; Consultant</h4>
+          <div class="exp-co">Freelance · Contractor</div>
+          <p style="color:var(--muted);" data-i18n="experience.e1_d">Coach ágil remoto para una empresa de EE. UU., 100% en inglés. Facilitador certificado Management 3.0.</p>
+          <span class="level-tag level-tag--strategic" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
+        </div>
+        <div class="exp-metric" style="color:var(--gold);">34 <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e1_m1">talleres</span><br>98% NPS</div>
+      </div>
+
+      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
+        <div class="exp-dates" style="color:var(--muted);">03/2023 — 04/2024</div>
+        <div class="exp-role">
+          <h4 style="color:var(--text-dark);" data-i18n="experience.e2_role">Agile Transformation Lead</h4>
+          <div class="exp-co">ITAU Bank, Uruguay</div>
+          <p style="color:var(--muted);" data-i18n="experience.e2_d">Lideré la transformación ágil del banco con OKRs y Flight Levels, escalando Scrum a 20 equipos.</p>
+          <span class="level-tag level-tag--strategic" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
+        </div>
+        <div class="exp-metric" style="color:var(--gold);">NPS 70<br>eNPS 95</div>
+      </div>
+
+      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
+        <div class="exp-dates" style="color:var(--muted);">12/2020 — 03/2023</div>
+        <div class="exp-role">
+          <h4 style="color:var(--text-dark);" data-i18n="experience.e3_role">Agile Coach &amp; Chapter Director</h4>
+          <div class="exp-co">Galileo / Technisys, Uruguay</div>
+          <p style="color:var(--muted);" data-i18n="experience.e3_d">Dirigí la disciplina ágil y un equipo de 15 Scrum Masters, escalando Scrum en 28 equipos y desarrollando un modelo de madurez ágil.</p>
+          <span class="level-tag level-tag--coordination" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.coordination">Nivel de Coordinación</span></span>
+        </div>
+        <div class="exp-metric" style="color:var(--gold);">28 <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m1">equipos</span><br>+60% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m2">madurez</span><br>$300K <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m3">ahorrados</span></div>
+      </div>
+
+      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
+        <div class="exp-dates" style="color:var(--muted);">04/2019 — 12/2021</div>
+        <div class="exp-role">
+          <h4 style="color:var(--text-dark);">Scrum Master</h4>
+          <div class="exp-co">Galileo / Technisys, Uruguay</div>
+          <p style="color:var(--muted);" data-i18n="experience.e4_d">Implementé OKRs y prácticas Lean/XP en equipos de alto rendimiento, reduciendo la deuda técnica a la mitad.</p>
+          <span class="level-tag level-tag--operational" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
+        </div>
+        <div class="exp-metric" style="color:var(--gold);">-50% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e4_m1">deuda técnica</span></div>
+      </div>
+
+      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
+        <div class="exp-dates" style="color:var(--muted);">04/2014 — 03/2019</div>
+        <div class="exp-role">
+          <h4 style="color:var(--text-dark);" data-i18n="experience.e5_role">Agile Project Manager &amp; Scrum Master</h4>
+          <div class="exp-co">Onetree, Uruguay</div>
+          <p style="color:var(--muted);" data-i18n="experience.e5_d">Scrum Master y Project Manager para clientes de EE. UU. como IDB, Stanford University y PADI.</p>
+          <span class="level-tag level-tag--operational" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
+        </div>
+        <div class="exp-metric" style="color:var(--gold);">93% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e5_m1">satisfacción</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:32px;">
+      <span class="eyebrow" data-i18n="certs.eyebrow">Credenciales</span>
+      <h2 style="font-size:26px;" data-i18n="certs.title">Certificaciones</h2>
+    </div>
+    <div class="cert-grid reveal">
+      <span class="cert-badge"><b>CTC</b> · Scrum Alliance · 2025</span>
+      <span class="cert-badge"><b>CSP-SM</b> · Scrum Alliance · 2024</span>
+      <span class="cert-badge"><b>ACSM</b> · Scrum Alliance · 2024</span>
+      <span class="cert-badge"><b>Lean Change</b> · 2024</span>
+      <span class="cert-badge"><b>KDS</b> · Kanban University · 2023</span>
+      <span class="cert-badge"><b>SAFe ASM</b> · Scaled Agile · 2022</span>
+      <span class="cert-badge"><b>SAFe Agilist</b> · Scaled Agile · 2021</span>
+      <span class="cert-badge"><b>CAL-E/T</b> · Scrum Alliance · 2021</span>
+      <span class="cert-badge"><b>LeSS</b> · LeSS.works · 2021</span>
+      <span class="cert-badge"><b>Mgmt 3.0</b> · Licensed Facilitator · 2021</span>
+      <span class="cert-badge"><b>PSM II</b> · Scrum.org · 2020</span>
+      <span class="cert-badge"><b>PAC</b> · Kleer · 2019</span>
+      <span class="cert-badge"><b>ATF</b> · Kleer · 2019</span>
+      <span class="cert-badge"><b>PMI-ACP</b> · PMI · 2018</span>
+      <span class="cert-badge"><b>CSM</b> · Scrum Alliance · 2015</span>
+      <span class="cert-badge"><b>PMP</b> · PMI · 2015</span>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="contact.eyebrow">Contacto</span>
+        <div class="section-head" style="margin-bottom:20px;">
+          <h2 data-i18n="contact.title">Hablemos de tu próxima transformación.</h2>
+        </div>
+        <p style="color:var(--muted);font-size:15.5px;line-height:1.6;margin-bottom:28px;" data-i18n="contact.subtitle">Completá el formulario o escribime directamente — respondo personalmente.</p>
+
+        <form id="contactForm">
+          <div class="field">
+            <label for="cf-name" data-i18n="contact.form_name">Nombre</label>
+            <input type="text" id="cf-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email" data-i18n="contact.form_email">Email</label>
+            <input type="email" id="cf-email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-msg" data-i18n="contact.form_msg">Mensaje</label>
+            <textarea id="cf-msg" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;" data-i18n="contact.form_submit">Enviar mensaje</button>
+          <p id="formNote"></p>
+        </form>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:jpedromello@gmail.com">
+            <span class="cl-label" data-i18n="contact.email_label">Email</span>
+            <span class="cl-value">jpedromello@gmail.com</span>
+          </a>
+          <a class="contact-link" href="tel:+59899292494">
+            <span class="cl-label" data-i18n="contact.phone_label">Teléfono</span>
+            <span class="cl-value">+598 99 292 494</span>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/juan-mello/" target="_blank" rel="noopener">
+            <span class="cl-label">LinkedIn</span>
+            <span class="cl-value" data-i18n="contact.linkedin_value">Ver perfil →</span>
+          </a>
+          <a class="contact-link" href="#hero">
+            <span class="cl-label" data-i18n="contact.location_label">Ubicación</span>
+            <span class="cl-value" data-i18n="contact.location_value">Uruguay · Remoto</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <p data-i18n="footer.copy">© 2026 Juan Mello — Agile Coach &amp; Consultant</p>
+    <p data-i18n="footer.tag">Enfocado en resultados, no en ceremonias.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const translations = {
+    es: {
+      "nav.about":"Sobre mí","nav.services":"Servicios","nav.experience":"Trayectoria","nav.contact":"Contacto","nav.cta":"Agendemos",
+      "hero.eyebrow":"Agile Coach Certificado · Scrum Alliance",
+      "hero.title":'Elevo la forma de trabajar de tu organización, <em>un nivel de vuelo a la vez.</em>',
+      "hero.subtitle":"Coach, formador y consultor con más de una década guiando transformaciones ágiles reales: de la operación diaria a la estrategia, en organizaciones que van desde bancos hasta startups tecnológicas de EE. UU.",
+      "hero.cta_primary":"Agendar una conversación","hero.cta_secondary":"Ver servicios",
+      "hero.stat1":"Años transformando equipos","hero.stat2":"Equipos guiados a escala","hero.stat3":"Certificaciones ágiles",
+      "level.strategic":"Nivel Estratégico","level.coordination":"Nivel de Coordinación","level.operational":"Nivel Operativo",
+      "about.eyebrow":"Sobre mí","about.title":"De la sala de máquinas a la sala del directorio.",
+      "about.body":"Soy Agile Coach certificado por Scrum Alliance, con más de diez años liderando y formando equipos remotos e internacionales de alto rendimiento. He guiado transformaciones ágiles completas — de estructuras heredadas a modelos operativos de producto — implementando frameworks escalados, OKRs y Flight Levels en organizaciones de distintos tamaños y sectores. Mi enfoque combina la reducción sistemática de deuda técnica con una cultura sostenida de mejora continua, siempre buscando un impacto que se sienta en los resultados y en las personas.",
+      "about.quote":"Busco transformaciones profundas: las que realmente cambian la forma en que las personas trabajan y viven.",
+      "about.edu_title":"Formación",
+      "about.edu1":"Coaching & NLP Master Practitioner","about.edu2":"MBA","about.edu3":"Analista de Sistemas",
+      "services.eyebrow":"Qué ofrezco","services.title":"Dos caminos, un mismo destino: equipos que entregan valor real.",
+      "services.col1_title":"Consultoría","services.col2_title":"Formación (Trainer)",
+      "services.c1_t":"Transformación ágil","services.c1_d":"Diseño e implementación de transformaciones ágiles end-to-end, desde el diagnóstico hasta la escala, incluyendo modelos operativos de producto.",
+      "services.c2_t":"OKRs y Flight Levels","services.c2_d":"Implementación de OKRs y del framework Flight Levels para conectar la estrategia con la operación diaria.",
+      "services.c3_t":"Frameworks escalados","services.c3_d":"Diseño y despliegue de Scrum, Kanban y frameworks escalados (SAFe, LeSS) en múltiples equipos.",
+      "services.c4_t":"Gestión de stakeholders","services.c4_d":"Facilitación de la relación entre equipos técnicos y stakeholders de negocio, con roadmaps claros y medibles.",
+      "services.c5_t":"Talleres y certificaciones","services.c5_d":"Talleres oficiales de Management 3.0 y programas de certificación ágil a medida.",
+      "services.c6_t":"Coaching de equipos","services.c6_d":"Mentoría directa a Scrum Masters y equipos para instalar hábitos ágiles sostenibles.",
+      "services.c7_t":"Facilitación de eventos","services.c7_d":"Diseño y facilitación de eventos ágiles a escala: PI Plannings, retrospectivas multi-equipo, talleres de OKRs.",
+      "services.c8_t":"Workshops in-house","services.c8_d":"Formaciones a medida para equipos y liderazgo, con seguimiento de resultados y NPS de satisfacción.",
+      "experience.eyebrow":"Trayectoria","experience.title":"Resultados, no solo roles.","experience.present":"Presente",
+      "experience.e1_d":"Coach ágil remoto para una empresa de EE. UU., 100% en inglés. Facilitador certificado Management 3.0.","experience.e1_m1":"talleres",
+      "experience.e2_role":"Agile Transformation Lead","experience.e2_d":"Lideré la transformación ágil del banco con OKRs y Flight Levels, escalando Scrum a 20 equipos.",
+      "experience.e3_role":"Agile Coach & Chapter Director","experience.e3_d":"Dirigí la disciplina ágil y un equipo de 15 Scrum Masters, escalando Scrum en 28 equipos y desarrollando un modelo de madurez ágil.",
+      "experience.e3_m1":"equipos","experience.e3_m2":"madurez","experience.e3_m3":"ahorrados",
+      "experience.e4_d":"Implementé OKRs y prácticas Lean/XP en equipos de alto rendimiento, reduciendo la deuda técnica a la mitad.","experience.e4_m1":"deuda técnica",
+      "experience.e5_role":"Agile Project Manager & Scrum Master","experience.e5_d":"Scrum Master y Project Manager para clientes de EE. UU. como IDB, Stanford University y PADI.","experience.e5_m1":"satisfacción",
+      "certs.eyebrow":"Credenciales","certs.title":"Certificaciones",
+      "contact.eyebrow":"Contacto","contact.title":"Hablemos de tu próxima transformación.",
+      "contact.subtitle":"Completá el formulario o escribime directamente — respondo personalmente.",
+      "contact.form_name":"Nombre","contact.form_email":"Email","contact.form_msg":"Mensaje","contact.form_submit":"Enviar mensaje",
+      "contact.email_label":"Email","contact.phone_label":"Teléfono","contact.linkedin_value":"Ver perfil →",
+      "contact.location_label":"Ubicación","contact.location_value":"Uruguay · Remoto",
+      "footer.copy":"© 2026 Juan Mello — Agile Coach & Consultant","footer.tag":"Enfocado en resultados, no en ceremonias.",
+      "form.sent":"Abriendo tu cliente de correo con el mensaje listo para enviar…"
+    },
+    en: {
+      "nav.about":"About","nav.services":"Services","nav.experience":"Experience","nav.contact":"Contact","nav.cta":"Let's talk",
+      "hero.eyebrow":"Certified Agile Coach · Scrum Alliance",
+      "hero.title":'I elevate how your organization works, <em>one flight level at a time.</em>',
+      "hero.subtitle":"Coach, trainer and consultant with over a decade guiding real agile transformations — from daily operations to strategy — for organizations ranging from banks to U.S. tech startups.",
+      "hero.cta_primary":"Book a conversation","hero.cta_secondary":"See services",
+      "hero.stat1":"Years transforming teams","hero.stat2":"Teams guided at scale","hero.stat3":"Agile certifications",
+      "level.strategic":"Strategic Level","level.coordination":"Coordination Level","level.operational":"Operational Level",
+      "about.eyebrow":"About me","about.title":"From the engine room to the boardroom.",
+      "about.body":"I'm a Scrum Alliance–certified Agile Coach with more than ten years leading and mentoring high-performing remote, international teams. I've guided full agile transformations — turning legacy structures into product operating models — implementing scaled frameworks, OKRs, and Flight Levels across organizations of different sizes and industries. My approach pairs systematic technical-debt reduction with a sustained culture of continuous improvement, always aiming for impact that shows up in both results and people.",
+      "about.quote":"I look for deep transformations — the kind that truly change how people work and live.",
+      "about.edu_title":"Education",
+      "about.edu1":"Coaching & NLP Master Practitioner","about.edu2":"MBA","about.edu3":"Systems Analyst",
+      "services.eyebrow":"What I offer","services.title":"Two paths, one destination: teams that deliver real value.",
+      "services.col1_title":"Consulting","services.col2_title":"Training",
+      "services.c1_t":"Agile transformation","services.c1_d":"End-to-end agile transformation design and delivery — from diagnosis to scale, including product operating models.",
+      "services.c2_t":"OKRs & Flight Levels","services.c2_d":"OKR and Flight Levels implementation to connect strategy with day-to-day operations.",
+      "services.c3_t":"Scaled frameworks","services.c3_d":"Design and rollout of Scrum, Kanban, and scaled frameworks (SAFe, LeSS) across multiple teams.",
+      "services.c4_t":"Stakeholder management","services.c4_d":"Facilitating the relationship between technical teams and business stakeholders, with clear, measurable roadmaps.",
+      "services.c5_t":"Workshops & certifications","services.c5_d":"Official Management 3.0 workshops and tailored agile certification programs.",
+      "services.c6_t":"Team coaching","services.c6_d":"Direct mentoring for Scrum Masters and teams to build sustainable agile habits.",
+      "services.c7_t":"Event facilitation","services.c7_d":"Design and facilitation of agile events at scale: PI Plannings, multi-team retrospectives, OKR workshops.",
+      "services.c8_t":"In-house workshops","services.c8_d":"Custom training for teams and leadership, with tracked outcomes and satisfaction NPS.",
+      "experience.eyebrow":"Track record","experience.title":"Results, not just roles.","experience.present":"Present",
+      "experience.e1_d":"Remote agile coach for a U.S.-based company, 100% in English. Certified Management 3.0 facilitator.","experience.e1_m1":"workshops",
+      "experience.e2_role":"Agile Transformation Lead","experience.e2_d":"Led the bank's agile transformation using OKRs and Flight Levels, scaling Scrum across 20 teams.",
+      "experience.e3_role":"Agile Coach & Chapter Director","experience.e3_d":"Directed the agile discipline and a team of 15 Scrum Masters, scaling Scrum across 28 teams and building a lean agile maturity model.",
+      "experience.e3_m1":"teams","experience.e3_m2":"maturity","experience.e3_m3":"saved",
+      "experience.e4_d":"Implemented OKRs and Lean/XP practices in high-performing teams, cutting technical debt in half.","experience.e4_m1":"tech debt",
+      "experience.e5_role":"Agile Project Manager & Scrum Master","experience.e5_d":"Scrum Master and Project Manager for U.S. clients including IDB, Stanford University, and PADI.","experience.e5_m1":"satisfaction",
+      "certs.eyebrow":"Credentials","certs.title":"Certifications",
+      "contact.eyebrow":"Contact","contact.title":"Let's talk about your next transformation.",
+      "contact.subtitle":"Fill out the form or reach out directly — I answer personally.",
+      "contact.form_name":"Name","contact.form_email":"Email","contact.form_msg":"Message","contact.form_submit":"Send message",
+      "contact.email_label":"Email","contact.phone_label":"Phone","contact.linkedin_value":"View profile →",
+      "contact.location_label":"Location","contact.location_value":"Uruguay · Remote",
+      "footer.copy":"© 2026 Juan Mello — Agile Coach & Consultant","footer.tag":"Focused on outcomes, not ceremonies.",
+      "form.sent":"Opening your email client with the message ready to send…"
+    }
+  };
+
+  let currentLang = localStorage.getItem('jm-lang') || 'es';
+
+  function applyLanguage(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-html');
+      if(translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+    });
+    document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+    localStorage.setItem('jm-lang', lang);
+  }
+
+  document.getElementById('langToggle').addEventListener('click', ()=>{
+    applyLanguage(currentLang === 'es' ? 'en' : 'es');
+  });
+
+  applyLanguage(currentLang);
+
+  // mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', ()=>{
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+  }));
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  // altimeter bar fill animation on load
+  window.addEventListener('load', ()=>{
+    document.querySelectorAll('.alt-bar-fill').forEach(el=>{
+      const target = el.getAttribute('data-fill');
+      requestAnimationFrame(()=>{ el.style.width = target + '%'; });
+    });
+  });
+
+  // contact form -> mailto
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const msg = document.getElementById('cf-msg').value;
+    const subject = encodeURIComponent('Contacto desde el sitio — ' + name);
+    const body = encodeURIComponent(msg + '\n\n' + email);
+    window.location.href = 'mailto:jpedromello@gmail.com?subject=' + subject + '&body=' + body;
+    note.textContent = translations[currentLang]['form.sent'];
+  });
+})();
+</script>
+</body>
+</html>
