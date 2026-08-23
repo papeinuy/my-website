@@ -135,6 +135,10 @@
     width:9px;height:9px;background:var(--gold);flex:none;
     transform:rotate(45deg);
   }
+  .brand-logo{
+    height:30px;width:auto;flex:none;
+    display:block;
+  }
   .nav-links{display:flex;align-items:center;gap:30px;}
   .nav-links a{
     font-size:14px;color:var(--muted-light);
@@ -251,6 +255,29 @@
     margin-top:32px;padding:22px 24px;border-left:2px solid var(--gold);
     background:var(--paper-2);font-family:var(--display);font-size:19px;line-height:1.5;
   }
+  .about-col{display:flex;flex-direction:column;gap:28px;}
+  .about-photo{
+    border:1px solid var(--line-light);
+    background:var(--ink);
+    aspect-ratio:4/5;
+    overflow:hidden;
+    position:relative;
+  }
+  .about-photo img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(35%) contrast(1.04);
+    display:block;
+  }
+  .about-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(15,22,32,0.55) 100%);
+    pointer-events:none;
+  }
+  .about-photo-caption{
+    position:absolute;left:16px;bottom:14px;z-index:1;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;
+    color:#F3F5F4;text-transform:uppercase;
+  }
   .about-side{border:1px solid var(--line-light);padding:28px;background:#fff;}
   .about-side h4{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
   .edu-item{padding:12px 0;border-top:1px solid var(--line-light);}
@@ -343,7 +370,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="#hero" class="brand"><span class="brand-mark"></span>Juan Mello</a>
+    <a href="#hero" class="brand"><img src="logo.png" alt="Juan Mello" class="brand-logo">Juan Mello</a>
     <nav id="navLinks" class="nav-links">
       <a href="#about" data-i18n="nav.about">Sobre mí</a>
       <a href="#services" data-i18n="nav.services">Servicios</a>
@@ -428,19 +455,25 @@
           <div class="about-quote" data-i18n="about.quote">Busco transformaciones profundas: las que realmente cambian la forma en que las personas trabajan y viven.</div>
         </div>
       </div>
-      <div class="about-side reveal">
-        <h4 data-i18n="about.edu_title">Formación</h4>
-        <div class="edu-item">
-          <div class="edu-degree" data-i18n="about.edu1">Coaching &amp; NLP Master Practitioner</div>
-          <div class="edu-meta">ICANAlliance &amp; NLP Institute of Uruguay · 2024</div>
+      <div class="about-col">
+        <div class="about-photo reveal">
+          <img src="juan-pic.png" alt="Juan Mello">
+          <span class="about-photo-caption">Juan Mello — Agile Coach</span>
         </div>
-        <div class="edu-item">
-          <div class="edu-degree" data-i18n="about.edu2">MBA</div>
-          <div class="edu-meta">Isabel I University, España · 2023</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-degree" data-i18n="about.edu3">Analista de Sistemas</div>
-          <div class="edu-meta">ORT University, Uruguay · 2009</div>
+        <div class="about-side reveal">
+          <h4 data-i18n="about.edu_title">Formación</h4>
+          <div class="edu-item">
+            <div class="edu-degree" data-i18n="about.edu1">Coaching &amp; NLP Master Practitioner</div>
+            <div class="edu-meta">ICANAlliance &amp; NLP Institute of Uruguay · 2024</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree" data-i18n="about.edu2">MBA</div>
+            <div class="edu-meta">Isabel I University, España · 2023</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree" data-i18n="about.edu3">Analista de Sistemas</div>
+            <div class="edu-meta">ORT University, Uruguay · 2009</div>
+          </div>
         </div>
       </div>
     </div>
