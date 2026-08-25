@@ -3,688 +3,534 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Mello — Agile Coach & Consultant</title>
-<meta name="description" content="Juan Mello — Agile Coach certificado, consultor y formador. Transformaciones ágiles, OKRs y Flight Levels.">
+<title>Juan Mello — Delivery Lead & Coach</title>
+<meta name="description" content="Juan Mello — Delivery Lead & Coach. Consultoría, coaching y training en transformación ágil, delivery e IA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0F1620;
-    --ink-2:#161F2B;
-    --ink-3:#1E2933;
-    --paper:#F3F5F4;
-    --paper-2:#E7EBE9;
-    --teal:#2E6E62;
-    --teal-light:#4C8C7E;
-    --gold:#C9A227;
-    --text-dark:#12181F;
-    --muted:#5B6B67;
-    --muted-light:#A7B6B2;
-    --line-dark:rgba(233,237,236,0.14);
-    --line-light:rgba(15,22,32,0.12);
-    --radius:2px;
-    --maxw:1180px;
-    --display: 'Space Grotesk', sans-serif;
-    --body: 'IBM Plex Sans', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
-  }
-  body{
-    margin:0;
-    font-family:var(--body);
-    color:var(--text-dark);
-    background:var(--paper);
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,h4{
-    font-family:var(--display);
-    margin:0;
-    letter-spacing:-0.01em;
-    line-height:1.08;
-  }
-  p{margin:0;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  @media (max-width:640px){.wrap{padding:0 20px;}}
-
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:12.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--teal-light);
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:22px;height:1px;
-    background:var(--gold);
-    display:inline-block;
-  }
-  section.light .eyebrow{color:var(--teal);}
-  section.light .eyebrow::before{background:var(--gold);}
-
-  /* ---------- Flight-level tag system (signature element) ---------- */
-  .level-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    padding:5px 10px 5px 8px;
-    border-radius:var(--radius);
-    border:1px solid var(--line-light);
-    white-space:nowrap;
-  }
-  .level-tag .dot{width:6px;height:6px;border-radius:50%;flex:none;}
-  .level-tag--strategic .dot{background:var(--gold);}
-  .level-tag--coordination .dot{background:var(--teal-light);}
-  .level-tag--operational .dot{background:var(--muted);}
-  section.dark .level-tag{border-color:var(--line-dark);color:var(--muted-light);}
-  section.light .level-tag{border-color:var(--line-light);color:var(--muted);}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    font-family:var(--mono);
-    font-size:13px;
-    letter-spacing:0.03em;
-    padding:13px 22px;
-    border-radius:var(--radius);
-    border:1px solid transparent;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
-  }
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--teal);color:#F3F5F4;}
-  .btn-primary:hover{background:var(--teal-light);}
-  .btn-ghost{background:transparent;color:var(--text-light,#E9EDEC);border-color:var(--line-dark);}
-  .btn-ghost:hover{border-color:var(--muted-light);}
-  section.light .btn-ghost{color:var(--text-dark);border-color:var(--line-light);}
-
-  /* ---------- Nav ---------- */
-  header.nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(15,22,32,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line-dark);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:16px 32px;
-    display:flex;align-items:center;justify-content:space-between;gap:24px;
-  }
-  @media (max-width:640px){.nav-inner{padding:14px 20px;}}
-  .brand{
-    font-family:var(--display);font-weight:700;font-size:17px;color:#F3F5F4;
-    display:flex;align-items:center;gap:10px;
-  }
-  .brand-mark{
-    width:9px;height:9px;background:var(--gold);flex:none;
-    transform:rotate(45deg);
-  }
-  .brand-logo{
-    height:30px;width:auto;flex:none;
-    display:block;
-  }
-  .nav-links{display:flex;align-items:center;gap:30px;}
-  .nav-links a{
-    font-size:14px;color:var(--muted-light);
-    position:relative;padding:4px 0;
-  }
-  .nav-links a:hover{color:#F3F5F4;}
-  .nav-right{display:flex;align-items:center;gap:14px;}
-  #langToggle{
-    font-family:var(--mono);font-size:12px;letter-spacing:0.06em;
-    background:transparent;border:1px solid var(--line-dark);color:var(--muted-light);
-    padding:8px 12px;border-radius:var(--radius);cursor:pointer;
-  }
-  #langToggle:hover{border-color:var(--gold);color:#F3F5F4;}
-  .nav-cta{display:inline-flex;}
-  .hamburger{
-    display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;
-  }
-  .hamburger span{width:20px;height:1.5px;background:#F3F5F4;}
-  @media (max-width:900px){
-    .nav-links{
-      position:fixed;inset:60px 0 auto 0;background:var(--ink);
-      flex-direction:column;align-items:flex-start;gap:0;
-      border-bottom:1px solid var(--line-dark);
-      max-height:0;overflow:hidden;transition:max-height .25s ease;
-    }
-    .nav-links.open{max-height:400px;}
-    .nav-links a{width:100%;padding:16px 20px;border-bottom:1px solid var(--line-dark);}
-    .nav-cta{display:none;}
-    .hamburger{display:flex;}
-  }
-
-  /* ---------- Hero ---------- */
-  section.dark{background:var(--ink);color:#E9EDEC;}
-  section.light{background:var(--paper);color:var(--text-dark);}
-  .hero{
-    padding:96px 0 80px;
-    background:
-      radial-gradient(ellipse 700px 400px at 85% -10%, rgba(46,110,98,0.35), transparent 60%),
-      var(--ink);
-    position:relative;overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;
-  }
-  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
-  .hero h1{
-    font-size:clamp(32px,4.4vw,54px);
-    color:#F6F7F5;
-    margin:20px 0 22px;
-  }
-  .hero h1 em{
-    font-style:normal;color:var(--gold);
-  }
-  .hero p.lead{
-    font-size:17px;line-height:1.65;color:var(--muted-light);
-    max-width:52ch;margin-bottom:34px;
-  }
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
-  .hero-levels{display:flex;gap:10px;flex-wrap:wrap;}
-
-  .altimeter{
-    display:flex;flex-direction:column;gap:0;
-    border:1px solid var(--line-dark);
-    background:var(--ink-2);
-  }
-  .alt-row{
-    display:grid;grid-template-columns:96px 1fr 64px;align-items:center;
-    padding:20px 20px;border-bottom:1px solid var(--line-dark);
-    gap:14px;
-  }
-  .alt-row:last-child{border-bottom:none;}
-  .alt-label{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--muted-light);text-transform:uppercase;}
-  .alt-bar-track{height:8px;background:var(--ink-3);position:relative;overflow:hidden;}
-  .alt-bar-fill{
-    position:absolute;left:0;top:0;bottom:0;width:0%;
-    background:linear-gradient(90deg, var(--teal), var(--teal-light));
-    transition:width 1.1s cubic-bezier(.2,.7,.2,1);
-  }
-  .alt-row[data-level="strategic"] .alt-bar-fill{background:linear-gradient(90deg,var(--gold),#e0bd52);}
-  .alt-value{font-family:var(--mono);font-size:13px;color:#F3F5F4;text-align:right;}
-
-  /* ---------- Stats strip ---------- */
-  .stats-strip{
-    border-top:1px solid var(--line-dark);
-    background:var(--ink-2);
-  }
-  .stats-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    max-width:var(--maxw);margin:0 auto;
-  }
-  .stat{
-    padding:30px 32px;border-left:1px solid var(--line-dark);
-  }
-  .stat:first-child{border-left:none;}
-  @media (max-width:640px){
-    .stats-grid{grid-template-columns:1fr;}
-    .stat{border-left:none;border-top:1px solid var(--line-dark);}
-    .stat:first-child{border-top:none;}
-  }
-  .stat-value{font-family:var(--mono);font-size:30px;color:var(--gold);}
-  .stat-label{font-size:13px;color:var(--muted-light);margin-top:4px;}
-
-  /* ---------- Section generic ---------- */
-  section{padding:96px 0;}
-  @media (max-width:640px){section{padding:64px 0;}}
-  .section-head{max-width:640px;margin-bottom:56px;}
-  .section-head h2{font-size:clamp(26px,3.2vw,38px);margin-top:16px;}
-
-  /* ---------- About ---------- */
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;}
-  @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
-  .about-body p{font-size:16.5px;line-height:1.75;color:var(--text-dark);}
-  .about-quote{
-    margin-top:32px;padding:22px 24px;border-left:2px solid var(--gold);
-    background:var(--paper-2);font-family:var(--display);font-size:19px;line-height:1.5;
-  }
-  .about-col{display:flex;flex-direction:column;gap:28px;}
-  .about-photo{
-    border:1px solid var(--line-light);
-    background:var(--ink);
-    aspect-ratio:4/5;
-    overflow:hidden;
-    position:relative;
-  }
-  .about-photo img{
-    width:100%;height:100%;object-fit:cover;
-    filter:grayscale(35%) contrast(1.04);
-    display:block;
-  }
-  .about-photo::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 60%, rgba(15,22,32,0.55) 100%);
-    pointer-events:none;
-  }
-  .about-photo-caption{
-    position:absolute;left:16px;bottom:14px;z-index:1;
-    font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;
-    color:#F3F5F4;text-transform:uppercase;
-  }
-  .about-side{border:1px solid var(--line-light);padding:28px;background:#fff;}
-  .about-side h4{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
-  .edu-item{padding:12px 0;border-top:1px solid var(--line-light);}
-  .edu-item:first-of-type{border-top:none;}
-  .edu-item .edu-degree{font-size:14.5px;font-weight:600;}
-  .edu-item .edu-meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:3px;}
-
-  /* ---------- Services ---------- */
-  .services-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
-  @media (max-width:860px){.services-cols{grid-template-columns:1fr;gap:44px;}}
-  .services-col-head{
-    display:flex;align-items:baseline;justify-content:space-between;
-    padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid var(--line-light);
-  }
-  .services-col-head h3{font-size:20px;}
-  .service-card{
-    padding:22px 0;border-top:1px solid var(--line-light);
-    display:grid;grid-template-columns:28px 1fr;gap:16px;
-  }
-  .service-card:first-of-type{border-top:none;}
-  .service-num{font-family:var(--mono);font-size:12px;color:var(--gold);padding-top:3px;}
-  .service-card h4{font-size:16px;margin-bottom:6px;}
-  .service-card p{font-size:14.5px;line-height:1.6;color:var(--muted);}
-
-  /* ---------- Experience ---------- */
-  .exp-list{border-top:1px solid var(--line-dark);}
-  .exp-item{
-    padding:30px 0;border-bottom:1px solid var(--line-dark);
-    display:grid;grid-template-columns:170px 1.4fr 1fr;gap:24px;align-items:start;
-  }
-  @media (max-width:860px){.exp-item{grid-template-columns:1fr;gap:10px;}}
-  .exp-dates{font-family:var(--mono);font-size:12.5px;color:var(--muted-light);padding-top:4px;}
-  .exp-role h4{font-size:18px;color:#F6F7F5;margin-bottom:4px;}
-  .exp-role .exp-co{font-size:14px;color:var(--teal-light);margin-bottom:10px;}
-  .exp-role p{font-size:14.5px;line-height:1.6;color:var(--muted-light);}
-  .exp-metric{
-    font-family:var(--mono);font-size:18px;color:var(--gold);
-    text-align:right;line-height:1.4;
-  }
-  @media (max-width:860px){.exp-metric{text-align:left;}}
-  .exp-item .level-tag{margin-top:10px;}
-
-  /* ---------- Certifications ---------- */
-  .cert-grid{display:flex;flex-wrap:wrap;gap:10px;}
-  .cert-badge{
-    font-family:var(--mono);font-size:12px;padding:8px 12px;
-    border:1px solid var(--line-light);color:var(--muted);
-    background:#fff;
-  }
-  .cert-badge b{color:var(--text-dark);font-weight:600;}
-
-  /* ---------- Contact ---------- */
-  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;}
-  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
-  form{display:flex;flex-direction:column;gap:16px;}
-  .field label{
-    display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;
-    text-transform:uppercase;color:var(--muted-light);margin-bottom:8px;
-  }
-  .field input,.field textarea{
-    width:100%;background:var(--ink-2);border:1px solid var(--line-dark);
-    color:#F3F5F4;padding:13px 14px;font-family:var(--body);font-size:15px;border-radius:var(--radius);
-  }
-  .field input:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
-  .field textarea{resize:vertical;min-height:120px;}
-  #formNote{font-size:13.5px;margin-top:4px;min-height:18px;color:var(--muted);}
-  #formNote.is-success{color:var(--teal);font-weight:600;}
-  #formNote.is-error{color:#B23A2E;}
-  #cf-submit[disabled]{opacity:0.6;cursor:default;transform:none;}
-  .contact-links{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line-dark);}
-  .contact-link{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 0;border-bottom:1px solid var(--line-dark);
-  }
-  .contact-link .cl-label{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted-light);}
-  .contact-link .cl-value{font-size:15px;color:#F3F5F4;}
-  .contact-link:hover .cl-value{color:var(--gold);}
-
-  footer{
-    padding:32px 0;border-top:1px solid var(--line-dark);background:var(--ink);
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  }
-  footer p{font-size:13px;color:var(--muted-light);}
-
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+:root{
+  --bg:#0E1330;--bg-soft:#141A3D;--card:#1B2350;--card-2:#212B5E;
+  --border:rgba(255,255,255,0.10);--border-2:rgba(255,255,255,0.18);
+  --coral:#FF5D7A;--coral-dim:rgba(255,93,122,0.15);
+  --peri:#7C90FF;--peri-dim:rgba(124,144,255,0.15);
+  --text:#F3F4FA;--muted:#A7ADD1;--muted-2:#6C74A6;
+  --radius:12px;--radius-lg:18px;--maxw:1180px;--font:'Manrope',sans-serif;--font-d:'Oswald',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+h1,h2{margin:0;font-family:var(--font-d);text-transform:uppercase;letter-spacing:.01em;font-weight:700;line-height:1.14}
+h3,h4{margin:0;font-family:var(--font);font-weight:800;line-height:1.2}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+@media(max-width:640px){.wrap{padding:0 20px}}
+::-webkit-scrollbar{height:0;width:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;display:block}
+.section-head{max-width:640px;margin-bottom:44px}
+.section-head h2{font-size:clamp(26px,3.4vw,38px);position:relative;padding-top:20px}
+.section-head h2::before{content:"";position:absolute;top:0;left:1px;width:44px;height:4px;border-radius:2px;background:var(--coral)}
+.section-head p{color:var(--muted);font-size:16px;line-height:1.6;margin-top:14px;text-transform:none}
+section{padding:88px 0;position:relative}
+@media(max-width:640px){section{padding:56px 0}}
+.btn{font-family:var(--font);font-weight:700;font-size:14.5px;padding:14px 26px;border-radius:var(--radius);border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .15s,background .15s,border-color .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--coral);color:#fff}
+.btn-primary:hover{opacity:.88}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--border-2)}
+.btn-outline:hover{border-color:var(--coral)}
+.btn-link{font-weight:700;color:var(--coral);font-size:14.5px;display:inline-flex;align-items:center;gap:6px}
+.btn-link:hover{opacity:.8}
+.btn-sm{padding:9px 18px;font-size:13px}
+.pill-badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border-2);padding:7px 14px 7px 10px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.pill-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);flex:none}
+.tag-chip{display:inline-block;background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;color:var(--muted)}
+.hl-pink{color:var(--coral);font-weight:700}
+.hl-blue{color:var(--peri);font-weight:700}
+.connector-lines{position:absolute;inset:auto 0 0 0;height:140px;overflow:hidden;pointer-events:none;opacity:.55}
+.connector-lines svg{width:100%;height:100%}
+header.nav{position:sticky;top:0;z-index:60;background:rgba(14,19,48,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+@media(max-width:640px){.nav-inner{padding:14px 20px}}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font);font-weight:800;font-size:16px;text-transform:none}
+.brand img{height:26px;width:auto;border-radius:4px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:14.5px;font-weight:500;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang-toggle{display:flex;align-items:center;gap:2px;font-size:13px;font-weight:700;color:var(--muted-2)}
+.lang-toggle button{font-family:var(--font);font-weight:700;font-size:13px;padding:4px 6px;border:none;background:transparent;color:var(--muted-2);cursor:pointer}
+.lang-toggle button.active{color:var(--coral)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:20px;height:1.5px;background:var(--text)}
+@media(max-width:920px){
+  .nav-links{position:fixed;inset:60px 0 auto 0;background:var(--bg-soft);flex-direction:column;align-items:flex-start;gap:0;border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height .25s}
+  .nav-links.open{max-height:460px}
+  .nav-links a{width:100%;padding:16px 20px;border-bottom:1px solid var(--border)}
+  #navCta{display:none}
+  .hamburger{display:flex}
+}
+.hero{padding:72px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{font-size:clamp(30px,4.4vw,50px);margin:22px 0 22px}
+.hero h1 .accent{color:var(--coral)}
+.hero p.lead{font-family:var(--font);text-transform:none;font-size:17px;line-height:1.65;color:var(--muted);max-width:52ch;margin-bottom:32px}
+.hero-ctas{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.hero-photo{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);background:var(--card);aspect-ratio:1/1;position:relative}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;inset:0;border-radius:var(--radius-lg);box-shadow:inset 0 -60px 60px -20px rgba(14,19,48,.75)}
+.stats-strip{border-top:1px solid var(--border);margin-top:56px;position:relative}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:0 auto}
+.stat{padding:26px 32px 60px;border-left:1px solid var(--border)}
+.stat:first-child{border-left:none}
+@media(max-width:700px){.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:none}.stat{border-top:1px solid var(--border)}.stat:nth-child(1),.stat:nth-child(2){border-top:none}}
+.stat-value{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--coral)}
+.stat-label{font-size:13px;color:var(--muted-2);margin-top:4px}
+.about-grid,.journey-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+@media(max-width:900px){.about-grid,.journey-grid{grid-template-columns:1fr;gap:40px}}
+.about-body p{font-size:15.5px;line-height:1.7;color:var(--muted);margin-bottom:16px}
+.role-list{margin-top:26px;display:flex;flex-direction:column}
+.role-item{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--border)}
+.role-item:first-child{border-top:none}
+.role-icon{width:38px;height:38px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px}
+.role-item h4{font-size:15px}
+.role-item .role-sub{font-size:13.5px;color:var(--muted-2);margin-top:2px}
+.side-photo{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);aspect-ratio:4/3;margin-bottom:20px}
+.side-photo img{width:100%;height:100%;object-fit:cover}
+.side-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.side-card h4{font-size:13px;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+.chip-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.side-card .btn{width:100%;justify-content:center}
+.services-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:860px){.services-grid-3{grid-template-columns:1fr}}
+.service-col{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:30px 26px;text-align:center}
+.service-icon-lg{width:60px;height:60px;border-radius:50%;background:var(--coral-dim);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--coral)}
+.service-col h3{font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.service-underline{width:34px;height:3px;background:var(--peri);border-radius:2px;margin:0 auto 16px}
+.service-col p{font-size:14px;line-height:1.7;color:var(--muted);text-align:left}
+.carousel-wrap{position:relative}
+.carousel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.carousel-arrows{display:flex;gap:10px;margin-top:22px}
+.arrow-btn{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);transition:border-color .15s}
+.arrow-btn:hover{border-color:var(--coral)}
+.media-subhead{font-family:var(--font);text-transform:none;font-size:16px;font-weight:800;color:var(--text);margin:36px 0 18px}
+.media-subhead:first-of-type{margin-top:0}
+.comm-card{flex:none;width:280px;scroll-snap-align:start;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--card)}
+.comm-card .comm-img{aspect-ratio:4/5;overflow:hidden;background:#000}
+.comm-card .comm-img img{width:100%;height:100%;object-fit:cover}
+.comm-card .comm-caption{padding:14px 16px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.video-card{flex:none;width:320px;scroll-snap-align:start;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--card)}
+.video-thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.video-thumb img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.video-play span{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;color:#0E1330}
+.video-tag{position:absolute;top:12px;left:12px;background:var(--bg);color:var(--text);font-size:11px;font-weight:700;letter-spacing:.04em;padding:4px 9px;border-radius:5px}
+.video-body{padding:16px}
+.video-body h4{font-size:14.5px;margin-bottom:5px;line-height:1.4}
+.video-body .video-meta{font-size:12.5px;color:var(--muted-2)}
+.cert-grid{display:flex;flex-wrap:wrap;gap:10px}
+.cert-badge{font-size:12.5px;padding:9px 14px;border:1px solid var(--border);border-radius:8px;color:var(--muted);background:var(--card)}
+.cert-badge b{color:var(--text)}
+.cta-banner{border-radius:var(--radius-lg);overflow:hidden;position:relative;padding:64px 44px;background:linear-gradient(120deg,#0E1330 30%,#1B2350 100%)}
+.cta-banner h2{font-size:clamp(24px,3.2vw,34px);max-width:16ch;margin-bottom:16px;position:relative;padding-top:20px}
+.cta-banner h2::before{content:"";position:absolute;top:0;left:1px;width:44px;height:4px;border-radius:2px;background:var(--coral)}
+.cta-banner p{color:var(--muted);max-width:48ch;margin-bottom:28px;font-size:15.5px;line-height:1.6;text-transform:none}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+form{display:flex;flex-direction:column;gap:16px}
+.field label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.field input,.field textarea{width:100%;background:var(--card);border:1px solid var(--border-2);color:var(--text);padding:13px 14px;font-family:var(--font);font-size:15px;border-radius:10px}
+.field input:focus,.field textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:var(--coral)}
+.field textarea{resize:vertical;min-height:120px}
+#formNote{font-size:13px;margin-top:2px;min-height:18px;color:var(--muted)}
+#formNote.is-success{color:var(--coral);font-weight:700}
+#formNote.is-error{color:#FF8A6B}
+#cf-submit[disabled]{opacity:.6}
+.contact-links{display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.contact-link{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.contact-link .cl-label{font-size:12px;font-weight:600;color:var(--muted-2)}
+.contact-link .cl-value{font-size:15px;font-weight:600}
+.contact-link:hover .cl-value{color:var(--coral)}
+footer{padding:36px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:800;margin-bottom:8px}
+.footer-brand img{height:22px;border-radius:4px}
+footer p{font-size:13.5px;color:var(--muted-2)}
+.footer-connect{text-align:right}
+@media(max-width:640px){.footer-connect{text-align:left}}
+.footer-connect h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-bottom:10px}
+.connect-icons{display:flex;gap:8px;justify-content:flex-end}
+@media(max-width:640px){.connect-icons{justify-content:flex-start}}
+.connect-icons a{width:34px;height:34px;border-radius:50%;background:var(--card);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.connect-icons a:hover{border-color:var(--coral);color:var(--coral)}
+.footer-bottom{margin-top:28px;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--muted-2)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:translateY(0)}
+:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+#resume{background:var(--bg-soft)}
+.resume-card{background:var(--card);border:1px solid var(--border-2);border-radius:var(--radius-lg);padding:44px}
+@media(max-width:640px){.resume-card{padding:28px}}
+.resume-name{font-family:var(--font-d);text-transform:uppercase;font-size:clamp(30px,4vw,42px);margin:14px 0 10px}
+.resume-tagline{font-size:18px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.resume-tagline .accent{color:var(--coral)}
+.resume-loc{font-size:14px;color:var(--muted-2);margin-bottom:22px}
+.resume-bio{font-size:15px;line-height:1.7;color:var(--muted);max-width:70ch;margin-bottom:22px}
+.resume-langs{display:flex;gap:8px;margin-bottom:26px}
+.resume-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.glance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px 0 48px}
+@media(max-width:700px){.glance-grid{grid-template-columns:1fr 1fr}}
+.glance-tile{background:var(--card-2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.glance-tile .gv{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--coral)}
+.glance-tile .gl{font-size:12.5px;color:var(--muted-2);margin-top:4px}
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--border-2)}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-26px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--coral);border:3px solid var(--bg-soft)}
+.tl-card{background:var(--card-2);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.tl-role{font-size:16.5px}
+.tl-co{font-size:13.5px;color:var(--peri);font-weight:600;margin-top:2px}
+.tl-date{font-size:12px;font-weight:700;color:var(--muted-2);background:var(--card);border:1px solid var(--border);padding:5px 10px;border-radius:7px;white-space:nowrap}
+.tl-desc{font-size:14px;color:var(--muted);line-height:1.6;margin:10px 0}
+.tl-bullets li{font-size:13.5px;color:var(--muted);line-height:1.6;padding-left:16px;position:relative;margin-top:6px}
+.tl-bullets li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--coral)}
+.edu-list{margin-top:20px;display:flex;flex-direction:column}
+.edu-item{padding:14px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.edu-item:first-child{border-top:none}
+.edu-degree{font-size:14.5px;font-weight:700}
+.edu-org{font-size:13px;color:var(--peri);margin-top:2px}
+.edu-date{font-size:12px;color:var(--muted-2);white-space:nowrap}
+@media print{
+  header.nav,footer,section:not(#resume),.hamburger,.connector-lines{display:none!important}
+  body{background:#fff;color:#111}
+  #resume{background:#fff;padding:0}
+  .resume-card,.glance-tile,.tl-card{background:#fff;border-color:#ddd}
+  .stat-value,.gv,.resume-tagline .accent,.tl-co,.edu-org{color:#9c1f3e}
+  .resume-actions,.side-card{display:none!important}
+}
 </style>
 </head>
 <body>
-
 <header class="nav">
   <div class="nav-inner">
-    <a href="#hero" class="brand"><img src="logo.png" alt="Juan Mello" class="brand-logo">Juan Mello</a>
+    <a href="#hero" class="brand"><img src="logo.png" alt="Juan Mello">Juan Mello</a>
     <nav id="navLinks" class="nav-links">
       <a href="#about" data-i18n="nav.about">Sobre mí</a>
+      <a href="#journey" data-i18n="nav.journey">Trayectoria</a>
       <a href="#services" data-i18n="nav.services">Servicios</a>
-      <a href="#experience" data-i18n="nav.experience">Trayectoria</a>
+      <a href="#media" data-i18n="nav.community">Charlas & medios</a>
+      <a href="#resume" data-i18n="nav.resume">Curriculum</a>
       <a href="#contact" data-i18n="nav.contact">Contacto</a>
     </nav>
     <div class="nav-right">
-      <button id="langToggle" aria-label="Switch language">EN</button>
-      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Agendemos</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="lang-toggle"><button id="langEs" class="active" data-lang="es">ES</button>/<button id="langEn" data-lang="en">EN</button></div>
+      <a href="#contact" id="navCta" class="btn btn-primary btn-sm" data-i18n="nav.cta">Agendar sesión</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<section class="dark hero" id="hero">
+<section class="hero" id="hero">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow" data-i18n="hero.eyebrow">Agile Coach Certificado · Scrum Alliance</span>
-        <h1 data-i18n-html="hero.title">Elevo la forma de trabajar de tu organización, <em>un nivel de vuelo a la vez.</em></h1>
-        <p class="lead" data-i18n="hero.subtitle">Coach, formador y consultor con más de una década guiando transformaciones ágiles reales: de la operación diaria a la estrategia, en organizaciones que van desde bancos hasta startups tecnológicas de EE. UU.</p>
+        <span class="pill-badge"><span class="dot"></span><span data-i18n="hero.badge">Delivery Lead & Coach · CTC · PMP · PMI-ACP</span></span>
+        <h1 data-i18n-html="hero.title">Convierto la complejidad en <span class="accent">claridad</span> para equipos, líderes y organizaciones.</h1>
+        <p class="lead" data-i18n="hero.subtitle">Ayudo a personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados. Más de 15 años combinando Delivery Leadership, Transformación Ágil e Inteligencia Artificial.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Agendar una conversación</a>
-          <a href="#services" class="btn btn-ghost" data-i18n="hero.cta_secondary">Ver servicios</a>
-        </div>
-        <div class="hero-levels">
-          <span class="level-tag level-tag--strategic"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
-          <span class="level-tag level-tag--coordination"><span class="dot"></span><span data-i18n="level.coordination">Nivel de Coordinación</span></span>
-          <span class="level-tag level-tag--operational"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
+          <a href="#services" class="btn-link" data-i18n="hero.cta_secondary">Ver cómo trabajamos →</a>
         </div>
       </div>
-      <div class="altimeter" aria-hidden="true">
-        <div class="alt-row" data-level="strategic">
-          <span class="alt-label" data-i18n="level.strategic">Nivel Estratégico</span>
-          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="88"></div></div>
-          <span class="alt-value">OKRs</span>
-        </div>
-        <div class="alt-row" data-level="coordination">
-          <span class="alt-label" data-i18n="level.coordination">Nivel de Coordinación</span>
-          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="70"></div></div>
-          <span class="alt-value">SAFe · LeSS</span>
-        </div>
-        <div class="alt-row" data-level="operational">
-          <span class="alt-label" data-i18n="level.operational">Nivel Operativo</span>
-          <div class="alt-bar-track"><div class="alt-bar-fill" data-fill="95"></div></div>
-          <span class="alt-value">Scrum · Kanban</span>
-        </div>
-      </div>
+      <div class="hero-photo reveal"><img src="juan-pic.png" alt="Juan Mello"></div>
     </div>
   </div>
-
   <div class="stats-strip">
+    <div class="connector-lines"><svg viewBox="0 0 1180 140" preserveAspectRatio="none">
+      <path d="M0,110 C150,40 250,160 400,90 S650,20 800,80 S1050,140 1180,60" fill="none" stroke="#7C90FF" stroke-width="2"/>
+      <path d="M0,70 C180,130 300,10 480,70 S700,150 900,60 S1100,10 1180,100" fill="none" stroke="#FF5D7A" stroke-width="2"/>
+      <path d="M0,130 C200,70 350,120 520,50 S780,90 950,30 S1120,90 1180,40" fill="none" stroke="#FFD166" stroke-width="1.5"/>
+      <circle cx="400" cy="90" r="5" fill="#7C90FF"/><circle cx="800" cy="80" r="5" fill="#FF5D7A"/><circle cx="480" cy="70" r="4" fill="#FFD166"/><circle cx="900" cy="60" r="5" fill="#7C90FF"/>
+    </svg></div>
     <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-value">10+</div>
-        <div class="stat-label" data-i18n="hero.stat1">Años transformando equipos</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">60+</div>
-        <div class="stat-label" data-i18n="hero.stat2">Equipos guiados a escala</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">15+</div>
-        <div class="stat-label" data-i18n="hero.stat3">Certificaciones ágiles</div>
-      </div>
+      <div class="stat"><div class="stat-value">15+</div><div class="stat-label" data-i18n="hero.stat1">Años en Delivery & Agile</div></div>
+      <div class="stat"><div class="stat-value">60+</div><div class="stat-label" data-i18n="hero.stat2">Equipos guiados a escala</div></div>
+      <div class="stat"><div class="stat-value">34</div><div class="stat-label" data-i18n="hero.stat3">Talleres facilitados</div></div>
+      <div class="stat"><div class="stat-value">16+</div><div class="stat-label" data-i18n="hero.stat4">Certificaciones</div></div>
     </div>
   </div>
 </section>
 
-<section class="light" id="about">
+<section id="about">
   <div class="wrap">
     <div class="about-grid">
       <div>
-        <span class="eyebrow" data-i18n="about.eyebrow">Sobre mí</span>
-        <div class="section-head" style="margin-bottom:24px;">
-          <h2 data-i18n="about.title">De la sala de máquinas a la sala del directorio.</h2>
+        <div class="section-head" style="margin-bottom:24px"><h2 data-i18n="about.title">Delivery Leadership, transformación ágil y equipos de alto desempeño.</h2></div>
+        <div class="about-body reveal">
+          <p data-i18n="about.p1">Ayudo a personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados.</p>
+          <p data-i18n="about.p2">Durante los últimos 15+ años trabajé con startups y grandes organizaciones, ayudando a los equipos a entregar con mayor predictibilidad mientras conecto la estrategia de negocio, la tecnología y el liderazgo.</p>
+          <p data-i18n="about.p3">Mi enfoque no consiste en implementar frameworks, sino en entender por qué el delivery se ralentiza, dónde surge la complejidad, y cómo crear las condiciones para que los equipos alcancen un alto desempeño.</p>
+        </div>
+      </div>
+      <div>
+        <div class="side-photo reveal"><img src="media/comm-3.jpg" alt="Juan Mello dando una charla"></div>
+        <div class="side-card reveal">
+          <h4 data-i18n="about.card_title">Temas en los que puedo ayudarte</h4>
+          <div class="chip-cloud">
+            <span class="tag-chip">Delivery Leadership</span><span class="tag-chip">OKRs</span><span class="tag-chip">Flight Levels</span>
+            <span class="tag-chip">Scrum · Kanban · SAFe</span><span class="tag-chip">Management 3.0</span><span class="tag-chip">AI Strategy</span>
+            <span class="tag-chip" data-i18n="about.chip_talent">Talent Management</span><span class="tag-chip">PNL</span>
+          </div>
+          <a href="#resume" class="btn btn-outline" data-i18n="about.cv_btn">Ver mi CV completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="journey-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:24px">
+          <span class="eyebrow" data-i18n="journey.eyebrow">Trayectoria</span>
+          <h2 data-i18n="journey.title">De Scrum Master a Delivery Lead.</h2>
         </div>
         <div class="about-body reveal">
-          <p data-i18n="about.body">Soy Agile Coach certificado por Scrum Alliance, con más de diez años liderando y formando equipos remotos e internacionales de alto rendimiento. He guiado transformaciones ágiles completas — de estructuras heredadas a modelos operativos de producto — implementando frameworks escalados, OKRs y Flight Levels en organizaciones de distintos tamaños y sectores. Mi enfoque combina la reducción sistemática de deuda técnica con una cultura sostenida de mejora continua, siempre buscando un impacto que se sienta en los resultados y en las personas.</p>
-          <div class="about-quote" data-i18n="about.quote">Busco transformaciones profundas: las que realmente cambian la forma en que las personas trabajan y viven.</div>
+          <p data-i18n="journey.p1">Mi carrera empezó en soporte técnico y service desk, y avancé por cada rol de la mesa: Scrum Master, Agile Project Manager, Chapter Director y hoy Delivery Lead y coach independiente.</p>
+          <p data-i18n="journey.p2">En el camino aprendí que ningún framework transforma nada por sí solo: lo que cambia una organización son las personas que aprenden a trabajar distinto. Por eso combino OKRs, Flight Levels, coaching 1:1 y PNL en cada proyecto.</p>
+          <p data-i18n="journey.p3">Hoy trabajo con equipos y líderes que necesitan pasar de la ambigüedad a la ejecución, sin perder de vista a las personas en el camino.</p>
+        </div>
+        <div class="role-list reveal">
+          <div class="role-item"><div class="role-icon">🧭</div><div><h4 data-i18n="journey.r1_t">Principal Consultant · Coaching & Training</h4><div class="role-sub" data-i18n="journey.r1_s">2024–Presente · Delivery Lead & Coach, Certified Team Coach (CTC) por Scrum Alliance.</div></div></div>
+          <div class="role-item"><div class="role-icon">🏦</div><div><h4 data-i18n="journey.r2_t">Transformation Lead · Itaú Uruguay</h4><div class="role-sub" data-i18n="journey.r2_s">2023–2024 · OKRs y Flight Levels a escala bancaria, NPS 70 / eNPS 95.</div></div></div>
+          <div class="role-item"><div class="role-icon">🤝</div><div><h4 data-i18n="journey.r3_t">Agile Chapter Director · Technisys</h4><div class="role-sub" data-i18n="journey.r3_s">2022–2023 · Lideré la disciplina ágil y 15 Scrum Masters en 28 equipos.</div></div></div>
+          <div class="role-item"><div class="role-icon">🔧</div><div><h4 data-i18n="journey.r4_t">Sr Scrum Master & Agile Coach · Technisys</h4><div class="role-sub" data-i18n="journey.r4_s">2019–2023 · -50% de deuda técnica, +60% de madurez ágil.</div></div></div>
+          <div class="role-item"><div class="role-icon">🌎</div><div><h4 data-i18n="journey.r5_t">Agile PM · Onetree & Tata Consultancy Services</h4><div class="role-sub" data-i18n="journey.r5_s">2007–2019 · Delivery para clientes globales como IDB, Stanford y PADI.</div></div></div>
         </div>
       </div>
-      <div class="about-col">
-        <div class="about-photo reveal">
-          <img src="juan-pic.png" alt="Juan Mello">
-          <span class="about-photo-caption">Juan Mello — Agile Coach</span>
-        </div>
-        <div class="about-side reveal">
-          <h4 data-i18n="about.edu_title">Formación</h4>
-          <div class="edu-item">
-            <div class="edu-degree" data-i18n="about.edu1">Coaching &amp; NLP Master Practitioner</div>
-            <div class="edu-meta">ICANAlliance &amp; NLP Institute of Uruguay · 2024</div>
+      <div>
+        <div class="side-photo reveal"><img src="media/comm-1.jpg" alt="Juan Mello facilitando"></div>
+        <div class="side-card reveal">
+          <h4 data-i18n="journey.card_title">Logros destacados</h4>
+          <div class="chip-cloud">
+            <span class="tag-chip">NPS 70</span><span class="tag-chip">eNPS 95</span><span class="tag-chip" data-i18n="journey.chip1">28 equipos</span>
+            <span class="tag-chip" data-i18n="journey.chip2">+60% madurez</span><span class="tag-chip" data-i18n="journey.chip3">-50% deuda técnica</span>
+            <span class="tag-chip" data-i18n="journey.chip4">93% satisfacción</span><span class="tag-chip" data-i18n="journey.chip5">34 talleres</span>
           </div>
-          <div class="edu-item">
-            <div class="edu-degree" data-i18n="about.edu2">MBA</div>
-            <div class="edu-meta">Isabel I University, España · 2023</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-degree" data-i18n="about.edu3">Analista de Sistemas</div>
-            <div class="edu-meta">ORT University, Uruguay · 2009</div>
-          </div>
+          <a href="#resume" class="btn btn-outline" data-i18n="journey.cv_btn">Ver mi CV completo →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="dark" id="services">
+<section id="services">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow" data-i18n="services.eyebrow">Qué ofrezco</span>
-      <h2 data-i18n="services.title">Dos caminos, un mismo destino: equipos que entregan valor real.</h2>
+      <span class="eyebrow" data-i18n="services.eyebrow">Servicios</span>
+      <h2 data-i18n="services.title">Consultoría, coaching y training</h2>
+      <p data-i18n="services.subtitle">Desde una consultoría de transformación completa hasta un taller puntual para tu equipo.</p>
     </div>
-    <div class="services-cols">
-      <div class="reveal">
-        <div class="services-col-head">
-          <h3 data-i18n="services.col1_title">Consultoría</h3>
-          <span class="level-tag level-tag--strategic"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
-        </div>
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <div><h4 data-i18n="services.c1_t">Transformación ágil</h4><p data-i18n="services.c1_d">Diseño e implementación de transformaciones ágiles end-to-end, desde el diagnóstico hasta la escala, incluyendo modelos operativos de producto.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">02</span>
-          <div><h4 data-i18n="services.c2_t">OKRs y Flight Levels</h4><p data-i18n="services.c2_d">Implementación de OKRs y del framework Flight Levels para conectar la estrategia con la operación diaria.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">03</span>
-          <div><h4 data-i18n="services.c3_t">Frameworks escalados</h4><p data-i18n="services.c3_d">Diseño y despliegue de Scrum, Kanban y frameworks escalados (SAFe, LeSS) en múltiples equipos.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">04</span>
-          <div><h4 data-i18n="services.c4_t">Gestión de stakeholders</h4><p data-i18n="services.c4_d">Facilitación de la relación entre equipos técnicos y stakeholders de negocio, con roadmaps claros y medibles.</p></div>
-        </div>
+    <div class="services-grid-3 reveal">
+      <div class="service-col">
+        <div class="service-icon-lg"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 5-5 2 2-5 5-2z"/></svg></div>
+        <h3 data-i18n="services.s1_t">Consultoría e Innovación</h3>
+        <div class="service-underline"></div>
+        <p data-i18n-html="services.s1_d">Diseño y ejecución de <b class="hl-pink">proyectos integrales de transformación ágil y delivery</b>. Aplico frameworks como <b class="hl-blue">Scrum, Kanban, SAFe, OKRs y Flight Levels</b>, combinados con <b class="hl-pink">estrategia de IA</b> para mejorar el flujo y la ejecución.</p>
       </div>
-      <div class="reveal">
-        <div class="services-col-head">
-          <h3 data-i18n="services.col2_title">Formación (Trainer)</h3>
-          <span class="level-tag level-tag--operational"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
-        </div>
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <div><h4 data-i18n="services.c5_t">Talleres y certificaciones</h4><p data-i18n="services.c5_d">Talleres oficiales de Management 3.0 y programas de certificación ágil a medida.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">02</span>
-          <div><h4 data-i18n="services.c6_t">Coaching de equipos</h4><p data-i18n="services.c6_d">Mentoría directa a Scrum Masters y equipos para instalar hábitos ágiles sostenibles.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">03</span>
-          <div><h4 data-i18n="services.c7_t">Facilitación de eventos</h4><p data-i18n="services.c7_d">Diseño y facilitación de eventos ágiles a escala: PI Plannings, retrospectivas multi-equipo, talleres de OKRs.</p></div>
-        </div>
-        <div class="service-card">
-          <span class="service-num">04</span>
-          <div><h4 data-i18n="services.c8_t">Workshops in-house</h4><p data-i18n="services.c8_d">Formaciones a medida para equipos y liderazgo, con seguimiento de resultados y NPS de satisfacción.</p></div>
-        </div>
+      <div class="service-col">
+        <div class="service-icon-lg"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 12a3 3 0 100-6 3 3 0 000 6z"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M16 12a3 3 0 100-6"/><path d="M14 20c.5-2.5 2.5-4 4-4"/></svg></div>
+        <h3 data-i18n="services.s2_t">Coaching y Mentoring</h3>
+        <div class="service-underline"></div>
+        <p data-i18n-html="services.s2_d">Acompañamiento a <b class="hl-pink">equipos y líderes</b> a través de coaching 1:1 y de equipo, mentoring y <b class="hl-blue">Programación Neurolingüística (PNL)</b>, para instalar <b class="hl-pink">hábitos ágiles sostenibles</b>.</p>
+      </div>
+      <div class="service-col">
+        <div class="service-icon-lg"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5A2.5 2.5 0 016.5 3H12v18H6.5A2.5 2.5 0 014 18.5v-13z"/><path d="M20 5.5A2.5 2.5 0 0017.5 3H12v18h5.5a2.5 2.5 0 002.5-2.5v-13z"/></svg></div>
+        <h3 data-i18n="services.s3_t">Formación y Desarrollo</h3>
+        <div class="service-underline"></div>
+        <p data-i18n-html="services.s3_d">Talleres y charlas en modalidad <b class="hl-blue">presencial, online o híbrida</b>. Facilitador certificado <b class="hl-pink">Management 3.0</b> (Licensed Facilitator, ex Regional Representative LATAM), con <b class="hl-blue">programas de certificación oficial</b>.</p>
       </div>
     </div>
+    <div style="text-align:center;margin-top:36px"><a href="#contact" class="btn btn-primary" data-i18n="hero.cta_primary">Agendar una conversación</a></div>
   </div>
 </section>
 
-<section class="light" id="experience">
+<section id="media">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow" data-i18n="experience.eyebrow">Trayectoria</span>
-      <h2 data-i18n="experience.title">Resultados, no solo roles.</h2>
+      <span class="eyebrow" data-i18n="videos.eyebrow">Charlas & medios</span>
+      <h2 data-i18n="videos.title">Dónde me podés encontrar</h2>
+      <p data-i18n="videos.subtitle">Talleres, charlas y videos sobre agilidad, delivery y liderazgo.</p>
     </div>
 
-    <div class="exp-list" style="border-top-color:var(--line-light);">
-      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
-        <div class="exp-dates" style="color:var(--muted);">03/2021 — <span data-i18n="experience.present">Presente</span></div>
-        <div class="exp-role">
-          <h4 style="color:var(--text-dark);">Coach, Trainer &amp; Consultant</h4>
-          <div class="exp-co">Freelance · Contractor</div>
-          <p style="color:var(--muted);" data-i18n="experience.e1_d">Coach ágil remoto para una empresa de EE. UU., 100% en inglés. Facilitador certificado Management 3.0.</p>
-          <span class="level-tag level-tag--strategic" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
-        </div>
-        <div class="exp-metric" style="color:var(--gold);">34 <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e1_m1">talleres</span><br>98% NPS</div>
+    <h3 class="media-subhead" data-i18n="media.imgs_title">Imágenes</h3>
+    <div class="carousel-wrap">
+      <div class="carousel" id="commCarousel">
+        <div class="comm-card"><div class="comm-img"><img src="media/comm-1.jpg" alt="LA Meetup III - OWU Uruguay"></div><div class="comm-caption" data-i18n="community.c1">LA Meetup III · OWU Uruguay — Facilitación del Open Space para +100 personas.</div></div>
+        <div class="comm-card"><div class="comm-img"><img src="media/comm-3.jpg" alt="Ágiles Latinoamérica - Lima, Perú"></div><div class="comm-caption" data-i18n="community.c3">Ágiles Latinoamérica (Lima, Perú) — Agilidad Inconsciente: Agilidad y PNL, ante ~1000 asistentes.</div></div>
+        <div class="comm-card"><div class="comm-img"><img src="media/comm-4.jpg" alt="PMI Uruguay"></div><div class="comm-caption" data-i18n="community.c4">PMI Uruguay — Taller de motivación y bienestar para el Capítulo PMI.</div></div>
+        <div class="comm-card"><div class="comm-img"><img src="media/comm-2.jpg" alt="Webinar cómo sorprender en una entrevista"></div><div class="comm-caption" data-i18n="community.c2">Webinar Scrum LATAM — Cómo sorprender en una entrevista.</div></div>
       </div>
+      <div class="carousel-arrows"><button class="arrow-btn" data-target="commCarousel" data-dir="-1" aria-label="Anterior">←</button><button class="arrow-btn" data-target="commCarousel" data-dir="1" aria-label="Siguiente">→</button></div>
+    </div>
 
-      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
-        <div class="exp-dates" style="color:var(--muted);">03/2023 — 04/2024</div>
-        <div class="exp-role">
-          <h4 style="color:var(--text-dark);" data-i18n="experience.e2_role">Agile Transformation Lead</h4>
-          <div class="exp-co">ITAU Bank, Uruguay</div>
-          <p style="color:var(--muted);" data-i18n="experience.e2_d">Lideré la transformación ágil del banco con OKRs y Flight Levels, escalando Scrum a 20 equipos.</p>
-          <span class="level-tag level-tag--strategic" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.strategic">Nivel Estratégico</span></span>
-        </div>
-        <div class="exp-metric" style="color:var(--gold);">NPS 70<br>eNPS 95</div>
+    <h3 class="media-subhead" data-i18n="media.videos_title">Videos</h3>
+    <div class="carousel-wrap">
+      <div class="carousel" id="videoCarousel">
+        <a class="video-card" href="https://www.youtube.com/watch?v=X4idktXdaEo" target="_blank" rel="noopener"><div class="video-thumb"><span class="video-tag" data-i18n="videos.tag">CHARLA</span><img src="https://img.youtube.com/vi/X4idktXdaEo/hqdefault.jpg" alt="Sandwich no, un wrap mejor!"><div class="video-play"><span>▶</span></div></div><div class="video-body"><h4 data-i18n="videos.v1_t">Sandwich no, ¡un wrap mejor!</h4><div class="video-meta" data-i18n="videos.v1_m">Nerdearla, Argentina</div></div></a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=cT7BSG6sLbY" target="_blank" rel="noopener"><div class="video-thumb"><span class="video-tag" data-i18n="videos.tag">CHARLA</span><img src="https://img.youtube.com/vi/cT7BSG6sLbY/hqdefault.jpg" alt="Cómo mejorar tus lunes"><div class="video-play"><span>▶</span></div></div><div class="video-body"><h4 data-i18n="videos.v2_t">Cómo mejorar tus lunes</h4><div class="video-meta" data-i18n="videos.v2_m">Nerdearla, Argentina</div></div></a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=4Z_dq-BcMiQ" target="_blank" rel="noopener"><div class="video-thumb"><span class="video-tag" data-i18n="videos.tag">CHARLA</span><img src="https://img.youtube.com/vi/4Z_dq-BcMiQ/hqdefault.jpg" alt="Modelo de Tuckman"><div class="video-play"><span>▶</span></div></div><div class="video-body"><h4 data-i18n="videos.v3_t">Entendiendo a mis equipos: Modelo de Tuckman</h4><div class="video-meta" data-i18n="videos.v3_m">Congreso Agile Week</div></div></a>
       </div>
-
-      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
-        <div class="exp-dates" style="color:var(--muted);">12/2020 — 03/2023</div>
-        <div class="exp-role">
-          <h4 style="color:var(--text-dark);" data-i18n="experience.e3_role">Agile Coach &amp; Chapter Director</h4>
-          <div class="exp-co">Galileo / Technisys, Uruguay</div>
-          <p style="color:var(--muted);" data-i18n="experience.e3_d">Dirigí la disciplina ágil y un equipo de 15 Scrum Masters, escalando Scrum en 28 equipos y desarrollando un modelo de madurez ágil.</p>
-          <span class="level-tag level-tag--coordination" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.coordination">Nivel de Coordinación</span></span>
-        </div>
-        <div class="exp-metric" style="color:var(--gold);">28 <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m1">equipos</span><br>+60% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m2">madurez</span><br>$300K <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e3_m3">ahorrados</span></div>
-      </div>
-
-      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
-        <div class="exp-dates" style="color:var(--muted);">04/2019 — 12/2021</div>
-        <div class="exp-role">
-          <h4 style="color:var(--text-dark);">Scrum Master</h4>
-          <div class="exp-co">Galileo / Technisys, Uruguay</div>
-          <p style="color:var(--muted);" data-i18n="experience.e4_d">Implementé OKRs y prácticas Lean/XP en equipos de alto rendimiento, reduciendo la deuda técnica a la mitad.</p>
-          <span class="level-tag level-tag--operational" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
-        </div>
-        <div class="exp-metric" style="color:var(--gold);">-50% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e4_m1">deuda técnica</span></div>
-      </div>
-
-      <div class="exp-item reveal" style="border-bottom-color:var(--line-light);">
-        <div class="exp-dates" style="color:var(--muted);">04/2014 — 03/2019</div>
-        <div class="exp-role">
-          <h4 style="color:var(--text-dark);" data-i18n="experience.e5_role">Agile Project Manager &amp; Scrum Master</h4>
-          <div class="exp-co">Onetree, Uruguay</div>
-          <p style="color:var(--muted);" data-i18n="experience.e5_d">Scrum Master y Project Manager para clientes de EE. UU. como IDB, Stanford University y PADI.</p>
-          <span class="level-tag level-tag--operational" style="margin-top:10px;"><span class="dot"></span><span data-i18n="level.operational">Nivel Operativo</span></span>
-        </div>
-        <div class="exp-metric" style="color:var(--gold);">93% <span style="font-size:12px;color:var(--muted);" data-i18n="experience.e5_m1">satisfacción</span></div>
-      </div>
+      <div class="carousel-arrows"><button class="arrow-btn" data-target="videoCarousel" data-dir="-1" aria-label="Anterior">←</button><button class="arrow-btn" data-target="videoCarousel" data-dir="1" aria-label="Siguiente">→</button></div>
     </div>
   </div>
 </section>
 
-<section class="dark">
+<section id="certs">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom:32px;">
-      <span class="eyebrow" data-i18n="certs.eyebrow">Credenciales</span>
-      <h2 style="font-size:26px;" data-i18n="certs.title">Certificaciones</h2>
-    </div>
+    <div class="section-head" style="margin-bottom:28px"><span class="eyebrow" data-i18n="certs.eyebrow">Credenciales</span><h2 style="font-size:26px" data-i18n="certs.title">Certificaciones</h2></div>
     <div class="cert-grid reveal">
-      <span class="cert-badge"><b>CTC</b> · Scrum Alliance · 2025</span>
-      <span class="cert-badge"><b>CSP-SM</b> · Scrum Alliance · 2024</span>
-      <span class="cert-badge"><b>ACSM</b> · Scrum Alliance · 2024</span>
-      <span class="cert-badge"><b>Lean Change</b> · 2024</span>
-      <span class="cert-badge"><b>KDS</b> · Kanban University · 2023</span>
-      <span class="cert-badge"><b>SAFe ASM</b> · Scaled Agile · 2022</span>
-      <span class="cert-badge"><b>SAFe Agilist</b> · Scaled Agile · 2021</span>
-      <span class="cert-badge"><b>CAL-E/T</b> · Scrum Alliance · 2021</span>
-      <span class="cert-badge"><b>LeSS</b> · LeSS.works · 2021</span>
-      <span class="cert-badge"><b>Mgmt 3.0</b> · Licensed Facilitator · 2021</span>
-      <span class="cert-badge"><b>PSM II</b> · Scrum.org · 2020</span>
-      <span class="cert-badge"><b>PAC</b> · Kleer · 2019</span>
-      <span class="cert-badge"><b>ATF</b> · Kleer · 2019</span>
-      <span class="cert-badge"><b>PMI-ACP</b> · PMI · 2018</span>
-      <span class="cert-badge"><b>CSM</b> · Scrum Alliance · 2015</span>
-      <span class="cert-badge"><b>PMP</b> · PMI · 2015</span>
+      <span class="cert-badge"><b>CTC</b> · Scrum Alliance · 2025</span><span class="cert-badge"><b>M3K</b> · Licensed Facilitator · 2025</span>
+      <span class="cert-badge"><b>Mgmt 3.0</b> · Licensed Facilitator · 2021</span><span class="cert-badge"><b>PNL</b> · Instituto de PNL del Uruguay</span>
+      <span class="cert-badge"><b>CSP-SM</b> · Scrum Alliance · 2024</span><span class="cert-badge"><b>ACSM</b> · Scrum Alliance · 2024</span>
+      <span class="cert-badge"><b>Lean Change</b> · 2024</span><span class="cert-badge"><b>KDS</b> · Kanban University · 2023</span>
+      <span class="cert-badge"><b>SAFe 5</b> · Agilist Practitioner</span><span class="cert-badge"><b>SAFe ASM</b> · Scaled Agile · 2022</span>
+      <span class="cert-badge"><b>CAL-E/T</b> · Scrum Alliance · 2021</span><span class="cert-badge"><b>LeSS</b> · LeSS.works · 2021</span>
+      <span class="cert-badge"><b>PSM II</b> · Scrum.org · 2020</span><span class="cert-badge"><b>PAC</b> · Kleer · 2019</span>
+      <span class="cert-badge"><b>ATF</b> · Kleer · 2019</span><span class="cert-badge"><b>PMI-ACP</b> · PMI · 2018</span>
+      <span class="cert-badge"><b>CSM</b> · Scrum Alliance · 2015</span><span class="cert-badge"><b>PMP</b> · PMI · 2015</span>
     </div>
   </div>
 </section>
 
-<section class="light" id="contact">
+<section>
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div class="connector-lines" style="height:100%;opacity:.35"><svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+        <path d="M0,220 C120,120 220,260 350,180 S550,60 700,150 S900,260 1000,140" fill="none" stroke="#7C90FF" stroke-width="2"/>
+        <path d="M0,140 C150,240 280,40 420,140 S620,270 800,120 S950,40 1000,180" fill="none" stroke="#FF5D7A" stroke-width="2"/>
+        <circle cx="350" cy="180" r="6" fill="#7C90FF"/><circle cx="700" cy="150" r="6" fill="#FF5D7A"/><circle cx="420" cy="140" r="5" fill="#FFD166"/>
+      </svg></div>
+      <h2 data-i18n="cta.title">¿Listo para destrabar tu próximo movimiento?</h2>
+      <p data-i18n="cta.subtitle">Ya sea que estés escalando tu equipo, preparando una transformación, o repensando cómo trabajan: hagámoslo concreto.</p>
+      <div class="cta-btns"><a href="#contact" class="btn btn-primary" data-i18n="cta.btn1">Agendar sesión</a><a href="mailto:info@juanmello.com" class="btn btn-outline" data-i18n="cta.btn2">Escribime</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="resume.eyebrow">Curriculum</span>
+    <div class="resume-card reveal">
+      <h1 class="resume-name">Juan Mello</h1>
+      <div class="resume-tagline" data-i18n-html="resume.tagline">Soy un <span class="accent">Delivery Lead & Coach</span></div>
+      <div class="resume-loc" data-i18n="resume.loc">📍 Montevideo, Uruguay · remoto en el mundo</div>
+      <p class="resume-bio" data-i18n="resume.bio">Delivery Leadership | Transformación Ágil | Equipos de Alto Desempeño. Ayudo a las personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados. Como Certified Team Coach por la Scrum Alliance, PMP y facilitador de Management 3.0, combino Delivery Leadership, Transformación Ágil, pensamiento Lean e Inteligencia Artificial para mejorar el flujo, el alineamiento y la ejecución.</p>
+      <div class="resume-langs"><span class="tag-chip" data-i18n="resume.lang1">Español (nativo)</span><span class="tag-chip" data-i18n="resume.lang2">Inglés (Full Professional)</span></div>
+      <div class="resume-actions">
+        <button class="btn btn-primary" onclick="window.print()" data-i18n="resume.save_pdf">Guardar como PDF</button>
+        <a href="cv.pdf" download class="btn btn-outline" data-i18n="resume.download_pdf">Descargar CV (PDF)</a>
+        <a href="https://www.linkedin.com/in/juanmello" target="_blank" rel="noopener" aria-label="LinkedIn"><span style="width:34px;height:34px;border-radius:50%;background:var(--card-2);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">in</span></a>
+        <a href="mailto:info@juanmello.com" aria-label="Email"><span style="width:34px;height:34px;border-radius:50%;background:var(--card-2);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">@</span></a>
+      </div>
+
+      <div class="glance-grid">
+        <div class="glance-tile"><div class="gv">15+</div><div class="gl" data-i18n="hero.stat1">Años en Delivery & Agile</div></div>
+        <div class="glance-tile"><div class="gv">60+</div><div class="gl" data-i18n="hero.stat2">Equipos guiados a escala</div></div>
+        <div class="glance-tile"><div class="gv">16+</div><div class="gl" data-i18n="hero.stat4">Certificaciones</div></div>
+        <div class="glance-tile"><div class="gv">34</div><div class="gl" data-i18n="hero.stat3">Talleres facilitados</div></div>
+      </div>
+
+      <span class="eyebrow" data-i18n="resume.exp_title">Experiencia</span>
+      <div class="timeline" style="margin-top:20px">
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role">Principal Consultant</div><div class="tl-co">Coaching & Training · Freelance</div></div><div class="tl-date" data-i18n="resume.d1">04/2024 — Presente</div></div>
+          <p class="tl-desc" data-i18n="resume.e1_d">Práctica independiente de consultoría, coaching y formación en Delivery, Agilidad e IA.</p>
+          <ul class="tl-bullets">
+            <li data-i18n="resume.e1_b1">Certified Team Coach (CTC) por Scrum Alliance — 01/2025–Presente.</li>
+            <li data-i18n="resume.e1_b2">M3K Licensed Facilitator — 04/2025–Presente.</li>
+            <li data-i18n="resume.e1_b3">Management 3.0 Licensed Facilitator — 04/2021–Presente (Regional Representative LATAM 2022–2024).</li>
+            <li data-i18n="resume.e1_b4">Mentor en el Master de Programación Neurolingüística — Instituto de PNL del Uruguay — 03/2025–Presente.</li>
+            <li data-i18n="resume.e1_b5">Agile Consultant en AgilePM — 02/2025–Presente.</li>
+          </ul>
+        </div></div>
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role" data-i18n="resume.e2_role">Transformation Lead</div><div class="tl-co">Itaú Uruguay</div></div><div class="tl-date">03/2023 — 04/2024</div></div>
+          <p class="tl-desc" data-i18n="resume.e2_d">Lideré la transformación ágil del banco usando OKRs y Flight Levels.</p>
+          <ul class="tl-bullets"><li data-i18n="resume.e2_b1">Incrementé el NPS de clientes a 70 y el eNPS de empleados a 95.</li><li data-i18n="resume.e2_b2">Implementé OKRs y una implementación escalada de Scrum en 20 equipos.</li></ul>
+        </div></div>
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role" data-i18n="resume.e3_role">Agile Chapter Director / Agile Coach / Sr Scrum Master</div><div class="tl-co">Technisys</div></div><div class="tl-date">04/2019 — 03/2023</div></div>
+          <p class="tl-desc" data-i18n="resume.e3_d">Evolucioné de Scrum Master a Agile Chapter Director, liderando la disciplina ágil de la organización.</p>
+          <ul class="tl-bullets">
+            <li data-i18n="resume.e3_b1">Agile Chapter Director (01/2022–03/2023): dirigí un equipo de 15 Scrum Masters y escalé Scrum en 28 equipos.</li>
+            <li data-i18n="resume.e3_b2">Agile Coach (04/2020–03/2023): +60% de madurez ágil en 12 meses; ahorro anual de $300.000.</li>
+            <li data-i18n="resume.e3_b3">Sr Scrum Master (04/2019–12/2021): -50% de deuda técnica con Lean y XP.</li>
+          </ul>
+        </div></div>
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role" data-i18n="resume.e4_role">Agile Project Manager / Scrum Master / JIRA Admin</div><div class="tl-co">Onetree</div></div><div class="tl-date">04/2014 — 03/2019</div></div>
+          <p class="tl-desc" data-i18n="resume.e4_d">Delivery ágil y administración de JIRA para clientes globales.</p>
+          <ul class="tl-bullets"><li data-i18n="resume.e4_b1">93% de satisfacción promedio con clientes como IDB, Stanford University y PADI.</li><li data-i18n="resume.e4_b2">Reduje el desperdicio y tiempo improductivo un 20% en la dinámica de eventos.</li></ul>
+        </div></div>
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role" data-i18n="resume.e5_role">Agile Project Manager / IT Coordinator / Service Desk</div><div class="tl-co">Tata Consultancy Services</div></div><div class="tl-date">11/2007 — 04/2014</div></div>
+          <p class="tl-desc" data-i18n="resume.e5_d">Recorrido de 6 años y medio desde Service Desk Engineer hasta Agile Project Manager.</p>
+          <ul class="tl-bullets">
+            <li data-i18n="resume.e5_b1">Agile Project Manager (01/2011–04/2014).</li>
+            <li data-i18n="resume.e5_b2">IT OnSite Coordinator / QA Manager (03/2012–01/2013).</li>
+            <li data-i18n="resume.e5_b3">Costa Rica Service Desk Team Leader (03/2009–01/2011).</li>
+            <li data-i18n="resume.e5_b4">Service Desk Engineer (11/2007–03/2009).</li>
+          </ul>
+        </div></div>
+        <div class="tl-item"><div class="tl-card">
+          <div class="tl-head"><div><div class="tl-role" data-i18n="resume.e6_role">IT Technical Support</div><div class="tl-co">Freelance Computer Services</div></div><div class="tl-date">03/2006 — 11/2007</div></div>
+          <p class="tl-desc" data-i18n="resume.e6_d">Soporte técnico independiente, inicio de mi carrera en tecnología.</p>
+        </div></div>
+      </div>
+
+      <span class="eyebrow" style="margin-top:44px" data-i18n="resume.edu_title">Educación</span>
+      <div class="edu-list">
+        <div class="edu-item"><div><div class="edu-degree" data-i18n="resume.edu1_d">Master of Business Administration (MBA)</div><div class="edu-org">Universidad Isabel I</div></div><div class="edu-date">2020 – 2023</div></div>
+        <div class="edu-item"><div><div class="edu-degree" data-i18n="resume.edu2_d">Especialización en Coaching &amp; PNL</div><div class="edu-org">Universidad Isabel I</div></div><div class="edu-date">2022 – 2023</div></div>
+        <div class="edu-item"><div><div class="edu-degree" data-i18n="resume.edu3_d">Master en Programación Neurolingüística</div><div class="edu-org">Instituto de PNL del Uruguay</div></div><div class="edu-date">2024</div></div>
+        <div class="edu-item"><div><div class="edu-degree" data-i18n="resume.edu4_d">Coaching &amp; PNL</div><div class="edu-org">Instituto de PNL del Uruguay</div></div><div class="edu-date">2022</div></div>
+        <div class="edu-item"><div><div class="edu-degree" data-i18n="resume.edu5_d">Licenciatura en Sistemas</div><div class="edu-org">Universidad ORT Uruguay</div></div><div class="edu-date">2009 – 2013</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
   <div class="wrap">
     <div class="contact-grid">
       <div class="reveal">
         <span class="eyebrow" data-i18n="contact.eyebrow">Contacto</span>
-        <div class="section-head" style="margin-bottom:20px;">
-          <h2 data-i18n="contact.title">Hablemos de tu próxima transformación.</h2>
-        </div>
-        <p style="color:var(--muted);font-size:15.5px;line-height:1.6;margin-bottom:28px;" data-i18n="contact.subtitle">Completá el formulario o escribime directamente — respondo personalmente.</p>
-
-        <!--
-          Este formulario envía el mensaje directamente por email usando Formspree
-          (no abre el cliente de correo). Para activarlo:
-          1) Creá una cuenta gratis en https://formspree.io
-          2) Creá un formulario nuevo con destino a info@juanmello.com
-          3) Copiá el "Form endpoint" (algo como https://formspree.io/f/xxxxxxx)
-          4) Reemplazá FORM_ENDPOINT en el <script> de más abajo por esa URL
-        -->
+        <div class="section-head" style="margin-bottom:20px"><h2 data-i18n="contact.title">Hablemos de tu próxima transformación.</h2></div>
+        <p style="color:var(--muted);font-size:15.5px;line-height:1.6;margin-bottom:28px;text-transform:none" data-i18n="contact.subtitle">Completá el formulario o escribime directamente — respondo personalmente.</p>
         <form id="contactForm">
-          <div class="field">
-            <label for="cf-name" data-i18n="contact.form_name">Nombre</label>
-            <input type="text" id="cf-name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="cf-email" data-i18n="contact.form_email">Email</label>
-            <input type="email" id="cf-email" name="email" required>
-          </div>
-          <div class="field">
-            <label for="cf-msg" data-i18n="contact.form_msg">Mensaje</label>
-            <textarea id="cf-msg" name="message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" id="cf-submit" style="align-self:flex-start;" data-i18n="contact.form_submit">Enviar mensaje</button>
+          <div class="field"><label for="cf-name" data-i18n="contact.form_name">Nombre</label><input type="text" id="cf-name" name="name" required></div>
+          <div class="field"><label for="cf-email" data-i18n="contact.form_email">Email</label><input type="email" id="cf-email" name="email" required></div>
+          <div class="field"><label for="cf-msg" data-i18n="contact.form_msg">Mensaje</label><textarea id="cf-msg" name="message" required></textarea></div>
+          <button type="submit" class="btn btn-primary" id="cf-submit" style="align-self:flex-start" data-i18n="contact.form_submit">Enviar mensaje</button>
           <p id="formNote"></p>
         </form>
       </div>
-
       <div class="reveal">
         <div class="contact-links">
-          <a class="contact-link" href="mailto:info@juanmello.com">
-            <span class="cl-label" data-i18n="contact.email_label">Email</span>
-            <span class="cl-value">info@juanmello.com</span>
-          </a>
-          <a class="contact-link" href="tel:+59892465408">
-            <span class="cl-label" data-i18n="contact.phone_label">Teléfono</span>
-            <span class="cl-value">+598 99 292 494</span>
-          </a>
-          <a class="contact-link" href="https://www.linkedin.com/in/juan-mello/" target="_blank" rel="noopener">
-            <span class="cl-label">LinkedIn</span>
-            <span class="cl-value" data-i18n="contact.linkedin_value">Ver perfil →</span>
-          </a>
-          <a class="contact-link" href="#hero">
-            <span class="cl-label" data-i18n="contact.location_label">Ubicación</span>
-            <span class="cl-value" data-i18n="contact.location_value">Uruguay · Remoto</span>
-          </a>
+          <a class="contact-link" href="mailto:info@juanmello.com"><span class="cl-label" data-i18n="contact.email_label">Email</span><span class="cl-value">info@juanmello.com</span></a>
+          <a class="contact-link" href="tel:+59892465408"><span class="cl-label" data-i18n="contact.phone_label">Teléfono</span><span class="cl-value">+598 92 465 408</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/juanmello" target="_blank" rel="noopener"><span class="cl-label">LinkedIn</span><span class="cl-value" data-i18n="contact.linkedin_value">Ver perfil →</span></a>
+          <a class="contact-link" href="#hero"><span class="cl-label" data-i18n="contact.location_label">Ubicación</span><span class="cl-value" data-i18n="contact.location_value">Uruguay · Remoto</span></a>
         </div>
       </div>
     </div>
@@ -692,197 +538,166 @@
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-    <p data-i18n="footer.copy">© 2026 Juan Mello — Agile Coach &amp; Consultant</p>
-    <p data-i18n="footer.tag">Enfocado en resultados, no en ceremonias.</p>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><div class="footer-brand"><img src="logo.png" alt="Juan Mello">Juan Mello</div><p data-i18n="footer.tagline">Delivery, con propósito. Uruguay · remoto en el mundo.</p></div>
+      <div class="footer-connect"><h4 data-i18n="footer.connect">Conectemos</h4><div class="connect-icons"><a href="https://www.linkedin.com/in/juanmello" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="mailto:info@juanmello.com" aria-label="Email">@</a></div></div>
+    </div>
+    <div class="footer-bottom"><p data-i18n="footer.copy">© 2026 Juan Mello — Delivery Lead &amp; Coach</p><p data-i18n="footer.tag">Diseñado para ayudarte a construir con propósito.</p></div>
   </div>
 </footer>
 
 <script>
 (function(){
-  const translations = {
-    es: {
-      "nav.about":"Sobre mí","nav.services":"Servicios","nav.experience":"Trayectoria","nav.contact":"Contacto","nav.cta":"Agendemos",
-      "hero.eyebrow":"Agile Coach Certificado · Scrum Alliance",
-      "hero.title":'Elevo la forma de trabajar de tu organización, <em>un nivel de vuelo a la vez.</em>',
-      "hero.subtitle":"Coach, formador y consultor con más de una década guiando transformaciones ágiles reales: de la operación diaria a la estrategia, en organizaciones que van desde bancos hasta startups tecnológicas de EE. UU.",
-      "hero.cta_primary":"Agendar una conversación","hero.cta_secondary":"Ver servicios",
-      "hero.stat1":"Años transformando equipos","hero.stat2":"Equipos guiados a escala","hero.stat3":"Certificaciones ágiles",
-      "level.strategic":"Nivel Estratégico","level.coordination":"Nivel de Coordinación","level.operational":"Nivel Operativo",
-      "about.eyebrow":"Sobre mí","about.title":"De la sala de máquinas a la sala del directorio.",
-      "about.body":"Soy Agile Coach certificado por Scrum Alliance, con más de diez años liderando y formando equipos remotos e internacionales de alto rendimiento. He guiado transformaciones ágiles completas — de estructuras heredadas a modelos operativos de producto — implementando frameworks escalados, OKRs y Flight Levels en organizaciones de distintos tamaños y sectores. Mi enfoque combina la reducción sistemática de deuda técnica con una cultura sostenida de mejora continua, siempre buscando un impacto que se sienta en los resultados y en las personas.",
-      "about.quote":"Busco transformaciones profundas: las que realmente cambian la forma en que las personas trabajan y viven.",
-      "about.edu_title":"Formación",
-      "about.edu1":"Coaching & NLP Master Practitioner","about.edu2":"MBA","about.edu3":"Analista de Sistemas",
-      "services.eyebrow":"Qué ofrezco","services.title":"Dos caminos, un mismo destino: equipos que entregan valor real.",
-      "services.col1_title":"Consultoría","services.col2_title":"Formación (Trainer)",
-      "services.c1_t":"Transformación ágil","services.c1_d":"Diseño e implementación de transformaciones ágiles end-to-end, desde el diagnóstico hasta la escala, incluyendo modelos operativos de producto.",
-      "services.c2_t":"OKRs y Flight Levels","services.c2_d":"Implementación de OKRs y del framework Flight Levels para conectar la estrategia con la operación diaria.",
-      "services.c3_t":"Frameworks escalados","services.c3_d":"Diseño y despliegue de Scrum, Kanban y frameworks escalados (SAFe, LeSS) en múltiples equipos.",
-      "services.c4_t":"Gestión de stakeholders","services.c4_d":"Facilitación de la relación entre equipos técnicos y stakeholders de negocio, con roadmaps claros y medibles.",
-      "services.c5_t":"Talleres y certificaciones","services.c5_d":"Talleres oficiales de Management 3.0 y programas de certificación ágil a medida.",
-      "services.c6_t":"Coaching de equipos","services.c6_d":"Mentoría directa a Scrum Masters y equipos para instalar hábitos ágiles sostenibles.",
-      "services.c7_t":"Facilitación de eventos","services.c7_d":"Diseño y facilitación de eventos ágiles a escala: PI Plannings, retrospectivas multi-equipo, talleres de OKRs.",
-      "services.c8_t":"Workshops in-house","services.c8_d":"Formaciones a medida para equipos y liderazgo, con seguimiento de resultados y NPS de satisfacción.",
-      "experience.eyebrow":"Trayectoria","experience.title":"Resultados, no solo roles.","experience.present":"Presente",
-      "experience.e1_d":"Coach ágil remoto para una empresa de EE. UU., 100% en inglés. Facilitador certificado Management 3.0.","experience.e1_m1":"talleres",
-      "experience.e2_role":"Agile Transformation Lead","experience.e2_d":"Lideré la transformación ágil del banco con OKRs y Flight Levels, escalando Scrum a 20 equipos.",
-      "experience.e3_role":"Agile Coach & Chapter Director","experience.e3_d":"Dirigí la disciplina ágil y un equipo de 15 Scrum Masters, escalando Scrum en 28 equipos y desarrollando un modelo de madurez ágil.",
-      "experience.e3_m1":"equipos","experience.e3_m2":"madurez","experience.e3_m3":"ahorrados",
-      "experience.e4_d":"Implementé OKRs y prácticas Lean/XP en equipos de alto rendimiento, reduciendo la deuda técnica a la mitad.","experience.e4_m1":"deuda técnica",
-      "experience.e5_role":"Agile Project Manager & Scrum Master","experience.e5_d":"Scrum Master y Project Manager para clientes de EE. UU. como IDB, Stanford University y PADI.","experience.e5_m1":"satisfacción",
-      "certs.eyebrow":"Credenciales","certs.title":"Certificaciones",
-      "contact.eyebrow":"Contacto","contact.title":"Hablemos de tu próxima transformación.",
-      "contact.subtitle":"Completá el formulario o escribime directamente — respondo personalmente.",
-      "contact.form_name":"Nombre","contact.form_email":"Email","contact.form_msg":"Mensaje","contact.form_submit":"Enviar mensaje",
-      "contact.email_label":"Email","contact.phone_label":"Teléfono","contact.linkedin_value":"Ver perfil →",
-      "contact.location_label":"Ubicación","contact.location_value":"Uruguay · Remoto",
-      "footer.copy":"© 2026 Juan Mello — Agile Coach & Consultant","footer.tag":"Enfocado en resultados, no en ceremonias.",
-      "form.sending":"Enviando…",
-      "form.success":"¡Gracias por tu mensaje! Me pondré en contacto en breve.",
-      "form.error":"Hubo un problema al enviar el mensaje. Probá de nuevo o escribime directamente a info@juanmello.com.",
-      "contact.form_submit_sending":"Enviando…"
-    },
-    en: {
-      "nav.about":"About","nav.services":"Services","nav.experience":"Experience","nav.contact":"Contact","nav.cta":"Let's talk",
-      "hero.eyebrow":"Certified Agile Coach · Scrum Alliance",
-      "hero.title":'I elevate how your organization works, <em>one flight level at a time.</em>',
-      "hero.subtitle":"Coach, trainer and consultant with over a decade guiding real agile transformations — from daily operations to strategy — for organizations ranging from banks to U.S. tech startups.",
-      "hero.cta_primary":"Book a conversation","hero.cta_secondary":"See services",
-      "hero.stat1":"Years transforming teams","hero.stat2":"Teams guided at scale","hero.stat3":"Agile certifications",
-      "level.strategic":"Strategic Level","level.coordination":"Coordination Level","level.operational":"Operational Level",
-      "about.eyebrow":"About me","about.title":"From the engine room to the boardroom.",
-      "about.body":"I'm a Scrum Alliance–certified Agile Coach with more than ten years leading and mentoring high-performing remote, international teams. I've guided full agile transformations — turning legacy structures into product operating models — implementing scaled frameworks, OKRs, and Flight Levels across organizations of different sizes and industries. My approach pairs systematic technical-debt reduction with a sustained culture of continuous improvement, always aiming for impact that shows up in both results and people.",
-      "about.quote":"I look for deep transformations — the kind that truly change how people work and live.",
-      "about.edu_title":"Education",
-      "about.edu1":"Coaching & NLP Master Practitioner","about.edu2":"MBA","about.edu3":"Systems Analyst",
-      "services.eyebrow":"What I offer","services.title":"Two paths, one destination: teams that deliver real value.",
-      "services.col1_title":"Consulting","services.col2_title":"Training",
-      "services.c1_t":"Agile transformation","services.c1_d":"End-to-end agile transformation design and delivery — from diagnosis to scale, including product operating models.",
-      "services.c2_t":"OKRs & Flight Levels","services.c2_d":"OKR and Flight Levels implementation to connect strategy with day-to-day operations.",
-      "services.c3_t":"Scaled frameworks","services.c3_d":"Design and rollout of Scrum, Kanban, and scaled frameworks (SAFe, LeSS) across multiple teams.",
-      "services.c4_t":"Stakeholder management","services.c4_d":"Facilitating the relationship between technical teams and business stakeholders, with clear, measurable roadmaps.",
-      "services.c5_t":"Workshops & certifications","services.c5_d":"Official Management 3.0 workshops and tailored agile certification programs.",
-      "services.c6_t":"Team coaching","services.c6_d":"Direct mentoring for Scrum Masters and teams to build sustainable agile habits.",
-      "services.c7_t":"Event facilitation","services.c7_d":"Design and facilitation of agile events at scale: PI Plannings, multi-team retrospectives, OKR workshops.",
-      "services.c8_t":"In-house workshops","services.c8_d":"Custom training for teams and leadership, with tracked outcomes and satisfaction NPS.",
-      "experience.eyebrow":"Track record","experience.title":"Results, not just roles.","experience.present":"Present",
-      "experience.e1_d":"Remote agile coach for a U.S.-based company, 100% in English. Certified Management 3.0 facilitator.","experience.e1_m1":"workshops",
-      "experience.e2_role":"Agile Transformation Lead","experience.e2_d":"Led the bank's agile transformation using OKRs and Flight Levels, scaling Scrum across 20 teams.",
-      "experience.e3_role":"Agile Coach & Chapter Director","experience.e3_d":"Directed the agile discipline and a team of 15 Scrum Masters, scaling Scrum across 28 teams and building a lean agile maturity model.",
-      "experience.e3_m1":"teams","experience.e3_m2":"maturity","experience.e3_m3":"saved",
-      "experience.e4_d":"Implemented OKRs and Lean/XP practices in high-performing teams, cutting technical debt in half.","experience.e4_m1":"tech debt",
-      "experience.e5_role":"Agile Project Manager & Scrum Master","experience.e5_d":"Scrum Master and Project Manager for U.S. clients including IDB, Stanford University, and PADI.","experience.e5_m1":"satisfaction",
-      "certs.eyebrow":"Credentials","certs.title":"Certifications",
-      "contact.eyebrow":"Contact","contact.title":"Let's talk about your next transformation.",
-      "contact.subtitle":"Fill out the form or reach out directly — I answer personally.",
-      "contact.form_name":"Name","contact.form_email":"Email","contact.form_msg":"Message","contact.form_submit":"Send message",
-      "contact.email_label":"Email","contact.phone_label":"Phone","contact.linkedin_value":"View profile →",
-      "contact.location_label":"Location","contact.location_value":"Uruguay · Remote",
-      "footer.copy":"© 2026 Juan Mello — Agile Coach & Consultant","footer.tag":"Focused on outcomes, not ceremonies.",
-      "form.sending":"Sending…",
-      "form.success":"Thank you for your message! I'll be in touch shortly.",
-      "form.error":"Something went wrong sending the message. Please try again or email me directly at info@juanmello.com.",
-      "contact.form_submit_sending":"Sending…"
-    }
-  };
-
-  let currentLang = localStorage.getItem('jm-lang') || 'es';
-
-  function applyLanguage(lang){
-    currentLang = lang;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      if(translations[lang][key] !== undefined) el.textContent = translations[lang][key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
-      const key = el.getAttribute('data-i18n-html');
-      if(translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
-    });
-    document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
-    localStorage.setItem('jm-lang', lang);
-  }
-
-  document.getElementById('langToggle').addEventListener('click', ()=>{
-    applyLanguage(currentLang === 'es' ? 'en' : 'es');
-  });
-
-  applyLanguage(currentLang);
-
-  // mobile nav
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', ()=>{
-    const open = navLinks.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
-  });
-  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-    navLinks.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-  }));
-
-  // reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-      });
-    }, {threshold:0.15});
-    revealEls.forEach(el=>io.observe(el));
-  } else {
-    revealEls.forEach(el=>el.classList.add('in'));
-  }
-
-  // altimeter bar fill animation on load
-  window.addEventListener('load', ()=>{
-    document.querySelectorAll('.alt-bar-fill').forEach(el=>{
-      const target = el.getAttribute('data-fill');
-      requestAnimationFrame(()=>{ el.style.width = target + '%'; });
-    });
-  });
-
-  // contact form -> sends the email directly, no mail client involved.
-  // Replace FORM_ENDPOINT with your own Formspree endpoint (see the HTML comment
-  // above the form for setup steps). Until it's set, the form will show an error.
-  const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
-
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
-  const submitBtn = document.getElementById('cf-submit');
-
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    note.className = '';
-    note.textContent = translations[currentLang]['form.sending'];
-    submitBtn.disabled = true;
-    submitBtn.textContent = translations[currentLang]['contact.form_submit_sending'];
-
-    const payload = {
-      name: document.getElementById('cf-name').value,
-      email: document.getElementById('cf-email').value,
-      message: document.getElementById('cf-msg').value
-    };
-
-    try{
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if(!res.ok) throw new Error('Request failed');
-      note.textContent = translations[currentLang]['form.success'];
-      note.className = 'is-success';
-      form.reset();
-    } catch(err){
-      note.textContent = translations[currentLang]['form.error'];
-      note.className = 'is-error';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = translations[currentLang]['contact.form_submit'];
-    }
-  });
+const translations={es:{
+"nav.about":"Sobre mí","nav.journey":"Trayectoria","nav.services":"Servicios","nav.community":"Charlas & medios","nav.resume":"Curriculum","nav.contact":"Contacto","nav.cta":"Agendar sesión",
+"hero.badge":"Delivery Lead & Coach · CTC · PMP · PMI-ACP",
+"hero.title":'Convierto la complejidad en <span class="accent">claridad</span> para equipos, líderes y organizaciones.',
+"hero.subtitle":"Ayudo a personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados. Más de 15 años combinando Delivery Leadership, Transformación Ágil e Inteligencia Artificial.",
+"hero.cta_primary":"Agendar una conversación","hero.cta_secondary":"Ver cómo trabajamos →",
+"hero.stat1":"Años en Delivery & Agile","hero.stat2":"Equipos guiados a escala","hero.stat3":"Talleres facilitados","hero.stat4":"Certificaciones",
+"about.title":"Delivery Leadership, transformación ágil y equipos de alto desempeño.",
+"about.p1":"Ayudo a personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados.",
+"about.p2":"Durante los últimos 15+ años trabajé con startups y grandes organizaciones, ayudando a los equipos a entregar con mayor predictibilidad mientras conecto la estrategia de negocio, la tecnología y el liderazgo.",
+"about.p3":"Mi enfoque no consiste en implementar frameworks, sino en entender por qué el delivery se ralentiza, dónde surge la complejidad, y cómo crear las condiciones para que los equipos alcancen un alto desempeño.",
+"about.card_title":"Temas en los que puedo ayudarte","about.chip_talent":"Talent Management","about.cv_btn":"Ver mi CV completo →",
+"journey.eyebrow":"Trayectoria","journey.title":"De Scrum Master a Delivery Lead.",
+"journey.p1":"Mi carrera empezó en soporte técnico y service desk, y avancé por cada rol de la mesa: Scrum Master, Agile Project Manager, Chapter Director y hoy Delivery Lead y coach independiente.",
+"journey.p2":"En el camino aprendí que ningún framework transforma nada por sí solo: lo que cambia una organización son las personas que aprenden a trabajar distinto. Por eso combino OKRs, Flight Levels, coaching 1:1 y PNL en cada proyecto.",
+"journey.p3":"Hoy trabajo con equipos y líderes que necesitan pasar de la ambigüedad a la ejecución, sin perder de vista a las personas en el camino.",
+"journey.r1_t":"Principal Consultant · Coaching & Training","journey.r1_s":"2024–Presente · Delivery Lead & Coach, Certified Team Coach (CTC) por Scrum Alliance.",
+"journey.r2_t":"Transformation Lead · Itaú Uruguay","journey.r2_s":"2023–2024 · OKRs y Flight Levels a escala bancaria, NPS 70 / eNPS 95.",
+"journey.r3_t":"Agile Chapter Director · Technisys","journey.r3_s":"2022–2023 · Lideré la disciplina ágil y 15 Scrum Masters en 28 equipos.",
+"journey.r4_t":"Sr Scrum Master & Agile Coach · Technisys","journey.r4_s":"2019–2023 · -50% de deuda técnica, +60% de madurez ágil.",
+"journey.r5_t":"Agile PM · Onetree & Tata Consultancy Services","journey.r5_s":"2007–2019 · Delivery para clientes globales como IDB, Stanford y PADI.",
+"journey.card_title":"Logros destacados","journey.chip1":"28 equipos","journey.chip2":"+60% madurez","journey.chip3":"-50% deuda técnica","journey.chip4":"93% satisfacción","journey.chip5":"34 talleres","journey.cv_btn":"Ver mi CV completo →",
+"services.eyebrow":"Servicios","services.title":"Consultoría, coaching y training","services.subtitle":"Desde una consultoría de transformación completa hasta un taller puntual para tu equipo.",
+"services.s1_t":"Consultoría e Innovación","services.s1_d":'Diseño y ejecución de <b class="hl-pink">proyectos integrales de transformación ágil y delivery</b>. Aplico frameworks como <b class="hl-blue">Scrum, Kanban, SAFe, OKRs y Flight Levels</b>, combinados con <b class="hl-pink">estrategia de IA</b> para mejorar el flujo y la ejecución.',
+"services.s2_t":"Coaching y Mentoring","services.s2_d":'Acompañamiento a <b class="hl-pink">equipos y líderes</b> a través de coaching 1:1 y de equipo, mentoring y <b class="hl-blue">Programación Neurolingüística (PNL)</b>, para instalar <b class="hl-pink">hábitos ágiles sostenibles</b>.',
+"services.s3_t":"Formación y Desarrollo","services.s3_d":'Talleres y charlas en modalidad <b class="hl-blue">presencial, online o híbrida</b>. Facilitador certificado <b class="hl-pink">Management 3.0</b> (Licensed Facilitator, ex Regional Representative LATAM), con <b class="hl-blue">programas de certificación oficial</b>.',
+"community.eyebrow":"En la comunidad",
+"community.c1":"LA Meetup III · OWU Uruguay — Facilitación del Open Space para +100 personas.",
+"community.c2":"Webinar Scrum LATAM — Cómo sorprender en una entrevista.",
+"community.c3":"Ágiles Latinoamérica (Lima, Perú) — Agilidad Inconsciente: Agilidad y PNL, ante ~1000 asistentes.",
+"community.c4":"PMI Uruguay — Taller de motivación y bienestar para el Capítulo PMI.",
+"media.imgs_title":"Imágenes","media.videos_title":"Videos",
+"videos.eyebrow":"Charlas & medios","videos.title":"Dónde me podés encontrar","videos.subtitle":"Talleres, charlas y videos sobre agilidad, delivery y liderazgo.","videos.tag":"CHARLA",
+"videos.v1_t":"Sandwich no, ¡un wrap mejor!","videos.v1_m":"Nerdearla, Argentina","videos.v2_t":"Cómo mejorar tus lunes","videos.v2_m":"Nerdearla, Argentina",
+"videos.v3_t":"Entendiendo a mis equipos: Modelo de Tuckman","videos.v3_m":"Congreso Agile Week",
+"certs.eyebrow":"Credenciales","certs.title":"Certificaciones",
+"cta.title":"¿Listo para destrabar tu próximo movimiento?","cta.subtitle":"Ya sea que estés escalando tu equipo, preparando una transformación, o repensando cómo trabajan: hagámoslo concreto.","cta.btn1":"Agendar sesión","cta.btn2":"Escribime",
+"resume.eyebrow":"Curriculum","resume.tagline":'Soy un <span class="accent">Delivery Lead & Coach</span>',"resume.loc":"📍 Montevideo, Uruguay · remoto en el mundo",
+"resume.bio":"Delivery Leadership | Transformación Ágil | Equipos de Alto Desempeño. Ayudo a las personas y organizaciones a mejorar el delivery de software haciendo visibles los sistemas, los patrones y las dinámicas humanas que impactan los resultados. Como Certified Team Coach por la Scrum Alliance, PMP y facilitador de Management 3.0, combino Delivery Leadership, Transformación Ágil, pensamiento Lean e Inteligencia Artificial para mejorar el flujo, el alineamiento y la ejecución.",
+"resume.lang1":"Español (nativo)","resume.lang2":"Inglés (Full Professional)","resume.save_pdf":"Guardar como PDF","resume.download_pdf":"Descargar CV (PDF)","resume.exp_title":"Experiencia","resume.edu_title":"Educación",
+"resume.d1":"04/2024 — Presente","resume.e1_d":"Práctica independiente de consultoría, coaching y formación en Delivery, Agilidad e IA.",
+"resume.e1_b1":"Certified Team Coach (CTC) por Scrum Alliance — 01/2025–Presente.","resume.e1_b2":"M3K Licensed Facilitator — 04/2025–Presente.",
+"resume.e1_b3":"Management 3.0 Licensed Facilitator — 04/2021–Presente (Regional Representative LATAM 2022–2024).",
+"resume.e1_b4":"Mentor en el Master de Programación Neurolingüística — Instituto de PNL del Uruguay — 03/2025–Presente.","resume.e1_b5":"Agile Consultant en AgilePM — 02/2025–Presente.",
+"resume.e2_role":"Transformation Lead","resume.e2_d":"Lideré la transformación ágil del banco usando OKRs y Flight Levels.","resume.e2_b1":"Incrementé el NPS de clientes a 70 y el eNPS de empleados a 95.","resume.e2_b2":"Implementé OKRs y una implementación escalada de Scrum en 20 equipos.",
+"resume.e3_role":"Agile Chapter Director / Agile Coach / Sr Scrum Master","resume.e3_d":"Evolucioné de Scrum Master a Agile Chapter Director, liderando la disciplina ágil de la organización.",
+"resume.e3_b1":"Agile Chapter Director (01/2022–03/2023): dirigí un equipo de 15 Scrum Masters y escalé Scrum en 28 equipos.","resume.e3_b2":"Agile Coach (04/2020–03/2023): +60% de madurez ágil en 12 meses; ahorro anual de $300.000.","resume.e3_b3":"Sr Scrum Master (04/2019–12/2021): -50% de deuda técnica con Lean y XP.",
+"resume.e4_role":"Agile Project Manager / Scrum Master / JIRA Admin","resume.e4_d":"Delivery ágil y administración de JIRA para clientes globales.","resume.e4_b1":"93% de satisfacción promedio con clientes como IDB, Stanford University y PADI.","resume.e4_b2":"Reduje el desperdicio y tiempo improductivo un 20% en la dinámica de eventos.",
+"resume.e5_role":"Agile Project Manager / IT Coordinator / Service Desk","resume.e5_d":"Recorrido de 6 años y medio desde Service Desk Engineer hasta Agile Project Manager.",
+"resume.e5_b1":"Agile Project Manager (01/2011–04/2014).","resume.e5_b2":"IT OnSite Coordinator / QA Manager (03/2012–01/2013).","resume.e5_b3":"Costa Rica Service Desk Team Leader (03/2009–01/2011).","resume.e5_b4":"Service Desk Engineer (11/2007–03/2009).",
+"resume.e6_role":"IT Technical Support","resume.e6_d":"Soporte técnico independiente, inicio de mi carrera en tecnología.",
+"resume.edu1_d":"Master of Business Administration (MBA)","resume.edu2_d":"Especialización en Coaching & PNL","resume.edu3_d":"Master en Programación Neurolingüística","resume.edu4_d":"Coaching & PNL","resume.edu5_d":"Licenciatura en Sistemas",
+"contact.eyebrow":"Contacto","contact.title":"Hablemos de tu próxima transformación.","contact.subtitle":"Completá el formulario o escribime directamente — respondo personalmente.",
+"contact.form_name":"Nombre","contact.form_email":"Email","contact.form_msg":"Mensaje","contact.form_submit":"Enviar mensaje",
+"contact.email_label":"Email","contact.phone_label":"Teléfono","contact.linkedin_value":"Ver perfil →","contact.location_label":"Ubicación","contact.location_value":"Uruguay · Remoto",
+"footer.tagline":"Delivery, con propósito. Uruguay · remoto en el mundo.","footer.connect":"Conectemos","footer.copy":"© 2026 Juan Mello — Delivery Lead & Coach","footer.tag":"Diseñado para ayudarte a construir con propósito.",
+"form.sending":"Enviando…","form.success":"¡Gracias por tu mensaje! Me pondré en contacto en breve.","form.error":"Hubo un problema al enviar el mensaje. Probá de nuevo o escribime directamente a info@juanmello.com.","contact.form_submit_sending":"Enviando…"
+},en:{
+"nav.about":"About","nav.journey":"Experience","nav.services":"Services","nav.community":"Talks & media","nav.resume":"Resume","nav.contact":"Contact","nav.cta":"Book a session",
+"hero.badge":"Delivery Lead & Coach · CTC · PMP · PMI-ACP",
+"hero.title":'Turning complexity into <span class="accent">clarity</span> for teams, leaders and organizations.',
+"hero.subtitle":"I help people and organizations improve software delivery by making visible the systems, patterns, and human dynamics that impact results. 15+ years combining Delivery Leadership, Agile Transformation, and AI.",
+"hero.cta_primary":"Book a conversation","hero.cta_secondary":"See how we work →",
+"hero.stat1":"Years in Delivery & Agile","hero.stat2":"Teams guided at scale","hero.stat3":"Workshops facilitated","hero.stat4":"Certifications",
+"about.title":"Delivery Leadership, agile transformation and high-performing teams.",
+"about.p1":"I help people and organizations improve software delivery by making visible the systems, patterns, and human dynamics that impact results.",
+"about.p2":"Over the past 15+ years, I've worked with startups and enterprise organizations, helping teams deliver more predictably while connecting business strategy, technology, and leadership.",
+"about.p3":"My focus isn't implementing frameworks — it's understanding why delivery slows down, where complexity comes from, and how to create the conditions for high-performing teams.",
+"about.card_title":"Topics I can help with","about.chip_talent":"Talent Management","about.cv_btn":"View my full CV →",
+"journey.eyebrow":"Experience","journey.title":"From Scrum Master to Delivery Lead.",
+"journey.p1":"My career started in technical support and service desk, and I moved through every seat at the table: Scrum Master, Agile Project Manager, Chapter Director, and today independent Delivery Lead and coach.",
+"journey.p2":"Along the way I learned no framework transforms anything on its own: what changes an organization is people learning to work differently. That's why I combine OKRs, Flight Levels, 1:1 coaching, and NLP in every project.",
+"journey.p3":"Today I work with teams and leaders who need to move from ambiguity to execution, without losing sight of the people along the way.",
+"journey.r1_t":"Principal Consultant · Coaching & Training","journey.r1_s":"2024–Present · Delivery Lead & Coach, Certified Team Coach (CTC) by Scrum Alliance.",
+"journey.r2_t":"Transformation Lead · Itaú Uruguay","journey.r2_s":"2023–2024 · Bank-scale OKRs and Flight Levels, NPS 70 / eNPS 95.",
+"journey.r3_t":"Agile Chapter Director · Technisys","journey.r3_s":"2022–2023 · Led the agile discipline and 15 Scrum Masters across 28 teams.",
+"journey.r4_t":"Sr Scrum Master & Agile Coach · Technisys","journey.r4_s":"2019–2023 · -50% technical debt, +60% agile maturity.",
+"journey.r5_t":"Agile PM · Onetree & Tata Consultancy Services","journey.r5_s":"2007–2019 · Delivery for global clients like IDB, Stanford, and PADI.",
+"journey.card_title":"Highlighted results","journey.chip1":"28 teams","journey.chip2":"+60% maturity","journey.chip3":"-50% tech debt","journey.chip4":"93% satisfaction","journey.chip5":"34 workshops","journey.cv_btn":"View my full CV →",
+"services.eyebrow":"Services","services.title":"Consulting, coaching & training","services.subtitle":"From a full transformation consulting engagement to a one-off workshop for your team.",
+"services.s1_t":"Consulting & Innovation","services.s1_d":'Design and delivery of <b class="hl-pink">end-to-end agile transformation and delivery projects</b>. I apply frameworks like <b class="hl-blue">Scrum, Kanban, SAFe, OKRs, and Flight Levels</b>, combined with <b class="hl-pink">AI strategy</b> to improve flow and execution.',
+"services.s2_t":"Coaching & Mentoring","services.s2_d":'Support for <b class="hl-pink">teams and leaders</b> through 1:1 and team coaching, mentoring, and <b class="hl-blue">Neuro-Linguistic Programming (NLP)</b>, to build <b class="hl-pink">sustainable agile habits</b>.',
+"services.s3_t":"Training & Development","services.s3_d":'Workshops and talks delivered <b class="hl-blue">in-person, online, or hybrid</b>. Certified <b class="hl-pink">Management 3.0</b> facilitator (Licensed Facilitator, former LATAM Regional Representative), with <b class="hl-blue">official certification programs</b>.',
+"community.eyebrow":"In the community",
+"community.c1":"LA Meetup III · OWU Uruguay — Facilitated the Open Space for 100+ people.",
+"community.c2":"Scrum LATAM Webinar — How to stand out in an interview.",
+"community.c3":"Ágiles Latinoamérica (Lima, Peru) — Unconscious Agility: Agility & NLP, before ~1000 attendees.",
+"community.c4":"PMI Uruguay — Motivation and wellbeing workshop for the PMI Chapter.",
+"media.imgs_title":"Images","media.videos_title":"Videos",
+"videos.eyebrow":"Talks & media","videos.title":"Where I show up","videos.subtitle":"Workshops, talks and videos on agility, delivery and leadership.","videos.tag":"TALK",
+"videos.v1_t":"Sandwich no more, a better wrap!","videos.v1_m":"Nerdearla, Argentina","videos.v2_t":"How to improve your Mondays","videos.v2_m":"Nerdearla, Argentina",
+"videos.v3_t":"Understanding my teams: Tuckman's Model","videos.v3_m":"Agile Week Conference",
+"certs.eyebrow":"Credentials","certs.title":"Certifications",
+"cta.title":"Ready to unblock your next move?","cta.subtitle":"Whether you're scaling your team, preparing a transformation, or rethinking how you work: let's make it concrete.","cta.btn1":"Book a session","cta.btn2":"Email me",
+"resume.eyebrow":"Resume","resume.tagline":'I am a <span class="accent">Delivery Lead & Coach</span>',"resume.loc":"📍 Montevideo, Uruguay · remote worldwide",
+"resume.bio":"Delivery Leadership | Agile Transformation | High-Performing Teams. I help teams and organizations improve software delivery by making systems, patterns, and human dynamics visible. As a Certified Team Coach by the Scrum Alliance, PMP, and Management 3.0 Facilitator, I combine Delivery Leadership, Agile Transformation, Lean thinking, and AI to improve flow, alignment, and execution.",
+"resume.lang1":"Spanish (native)","resume.lang2":"English (Full Professional)","resume.save_pdf":"Save as PDF","resume.download_pdf":"Download CV (PDF)","resume.exp_title":"Experience","resume.edu_title":"Education",
+"resume.d1":"04/2024 — Present","resume.e1_d":"Independent consulting, coaching and training practice in Delivery, Agility and AI.",
+"resume.e1_b1":"Certified Team Coach (CTC) by Scrum Alliance — 01/2025–Present.","resume.e1_b2":"M3K Licensed Facilitator — 04/2025–Present.",
+"resume.e1_b3":"Management 3.0 Licensed Facilitator — 04/2021–Present (LATAM Regional Representative 2022–2024).",
+"resume.e1_b4":"Mentor in the NLP Master's program — Instituto de PNL del Uruguay — 03/2025–Present.","resume.e1_b5":"Agile Consultant at AgilePM — 02/2025–Present.",
+"resume.e2_role":"Transformation Lead","resume.e2_d":"Led the bank's agile transformation using OKRs and Flight Levels.","resume.e2_b1":"Increased customer NPS to 70 and employee eNPS to 95.","resume.e2_b2":"Implemented OKRs and a scaled Scrum rollout across 20 teams.",
+"resume.e3_role":"Agile Chapter Director / Agile Coach / Sr Scrum Master","resume.e3_d":"Progressed from Scrum Master to Agile Chapter Director, leading the organization's agile discipline.",
+"resume.e3_b1":"Agile Chapter Director (01/2022–03/2023): directed a team of 15 Scrum Masters and scaled Scrum across 28 teams.","resume.e3_b2":"Agile Coach (04/2020–03/2023): +60% agile maturity in 12 months; $300K in annual savings.","resume.e3_b3":"Sr Scrum Master (04/2019–12/2021): -50% technical debt with Lean and XP.",
+"resume.e4_role":"Agile Project Manager / Scrum Master / JIRA Admin","resume.e4_d":"Agile delivery and JIRA administration for global clients.","resume.e4_b1":"93% average customer satisfaction with clients like IDB, Stanford University, and PADI.","resume.e4_b2":"Reduced waste and unproductive time by 20% in event dynamics.",
+"resume.e5_role":"Agile Project Manager / IT Coordinator / Service Desk","resume.e5_d":"Six-and-a-half-year path from Service Desk Engineer to Agile Project Manager.",
+"resume.e5_b1":"Agile Project Manager (01/2011–04/2014).","resume.e5_b2":"IT OnSite Coordinator / QA Manager (03/2012–01/2013).","resume.e5_b3":"Costa Rica Service Desk Team Leader (03/2009–01/2011).","resume.e5_b4":"Service Desk Engineer (11/2007–03/2009).",
+"resume.e6_role":"IT Technical Support","resume.e6_d":"Independent technical support, the start of my technology career.",
+"resume.edu1_d":"Master of Business Administration (MBA)","resume.edu2_d":"Specialization in Coaching & NLP","resume.edu3_d":"Master's in Neuro-Linguistic Programming","resume.edu4_d":"Coaching & NLP","resume.edu5_d":"Systems Degree",
+"contact.eyebrow":"Contact","contact.title":"Let's talk about your next transformation.","contact.subtitle":"Fill out the form or reach out directly — I answer personally.",
+"contact.form_name":"Name","contact.form_email":"Email","contact.form_msg":"Message","contact.form_submit":"Send message",
+"contact.email_label":"Email","contact.phone_label":"Phone","contact.linkedin_value":"View profile →","contact.location_label":"Location","contact.location_value":"Uruguay · Remote",
+"footer.tagline":"Delivery, with purpose. Uruguay · remote worldwide.","footer.connect":"Connect","footer.copy":"© 2026 Juan Mello — Delivery Lead & Coach","footer.tag":"Designed to help you build with purpose.",
+"form.sending":"Sending…","form.success":"Thank you for your message! I'll be in touch shortly.","form.error":"Something went wrong sending the message. Please try again or email me directly at info@juanmello.com.","contact.form_submit_sending":"Sending…"
+}};
+let currentLang=localStorage.getItem('jm-lang')||'es';
+function applyLanguage(lang){
+  currentLang=lang;document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(translations[lang][k]!==undefined)el.textContent=translations[lang][k];});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html');if(translations[lang][k]!==undefined)el.innerHTML=translations[lang][k];});
+  document.getElementById('langEs').classList.toggle('active',lang==='es');
+  document.getElementById('langEn').classList.toggle('active',lang==='en');
+  localStorage.setItem('jm-lang',lang);
+}
+document.getElementById('langEs').addEventListener('click',()=>applyLanguage('es'));
+document.getElementById('langEn').addEventListener('click',()=>applyLanguage('en'));
+applyLanguage(currentLang);
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{const o=navLinks.classList.toggle('open');hamburger.setAttribute('aria-expanded',o);});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');hamburger.setAttribute('aria-expanded','false');}));
+const revealEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  revealEls.forEach(el=>io.observe(el));
+}else revealEls.forEach(el=>el.classList.add('in'));
+document.querySelectorAll('.arrow-btn').forEach(btn=>{btn.addEventListener('click',()=>{const t=document.getElementById(btn.getAttribute('data-target'));t.scrollBy({left:parseInt(btn.getAttribute('data-dir'),10)*(t.clientWidth*.8),behavior:'smooth'});});});
+const FORM_ENDPOINT='https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+const form=document.getElementById('contactForm'),note=document.getElementById('formNote'),submitBtn=document.getElementById('cf-submit');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();note.className='';note.textContent=translations[currentLang]['form.sending'];
+  submitBtn.disabled=true;submitBtn.textContent=translations[currentLang]['contact.form_submit_sending'];
+  const payload={name:document.getElementById('cf-name').value,email:document.getElementById('cf-email').value,message:document.getElementById('cf-msg').value};
+  try{
+    const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('fail');
+    note.textContent=translations[currentLang]['form.success'];note.className='is-success';form.reset();
+  }catch(err){note.textContent=translations[currentLang]['form.error'];note.className='is-error';}
+  finally{submitBtn.disabled=false;submitBtn.textContent=translations[currentLang]['contact.form_submit'];}
+});
 })();
 </script>
 </body>
